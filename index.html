@@ -4,45 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#f6f2fa">
+  <meta name="theme-color" content="#f6f4fb">
   <title>時尚訂購機 · 九月系列</title>
   <meta name="description" content="瀏覽 Heartopia 時尚訂購機九月回歸系列的全部 829 件商品，比較訂單獎勵、基礎價格與訂購券需求，支援繁體中文與英文。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236d59ce'/%3E%3Cpath d='M32 13l4.8 14.2L51 32l-14.2 4.8L32 51l-4.8-14.2L13 32l14.2-4.8L32 13z' fill='%23fff7e8'/%3E%3C/svg%3E">
   <style>
 
-
-
-
 /* =========================================================
-   Fashion Order Machine 路 September collection
-   A quiet, pastel catalogue for Heartopia's returning offers.
+   Fashion Order Machine · September collection
+   Quiet, readable catalogue: one accent, one surface,
+   generous type, no decorative noise.
    ========================================================= */
 
 :root {
-  --bg: #f6f2fa;
-  --surface: #fffdfa;
-  --surface-strong: #ffffff;
-  --surface-muted: #f8f5fc;
-  --ink: #2f2947;
-  --ink-soft: #4f4865;
-  --muted: #88809f;
-  --faint: #a9a2b8;
-  --line: rgba(62, 48, 108, 0.105);
-  --line-soft: rgba(62, 48, 108, 0.065);
+  --bg: #f6f4fb;
+  --surface: #ffffff;
+  --ink: #2b2540;
+  --ink-soft: #4c4663;
+  --muted: #6f6986;
+  --faint: #928ca4;
+  --line: #e7e2f1;
+  --line-soft: #f0ecf7;
   --accent: #6d59ce;
   --accent-deep: #5542b5;
-  --accent-soft: #eee9fd;
-  --accent-mist: #f7f3ff;
+  --accent-soft: #ece7fb;
   --accent-rgb: 109, 89, 206;
-  --hero-a: #eee9fd;
-  --hero-b: #fff0e9;
-  --shadow-sm: 0 10px 28px -22px rgba(42, 31, 83, 0.34);
-  --shadow-md: 0 28px 65px -46px rgba(42, 31, 83, 0.45);
-  --shadow-lg: 0 40px 90px -52px rgba(42, 31, 83, 0.55);
-  --radius-xl: 30px;
-  --radius-lg: 24px;
-  --radius-md: 18px;
-  --radius-sm: 12px;
+  --radius: 14px;
   --font: "Quicksand", "Avenir Next", "Nunito", "Segoe UI", "Noto Sans TC",
     "PingFang TC", "Microsoft JhengHei", sans-serif;
   color-scheme: light;
@@ -71,9 +58,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(980px 680px at 4% -8%, rgba(215, 203, 255, 0.52), transparent 54%),
-    radial-gradient(780px 620px at 96% 2%, rgba(255, 220, 228, 0.48), transparent 50%),
-    radial-gradient(900px 800px at 55% 105%, rgba(221, 240, 242, 0.58), transparent 55%),
+    radial-gradient(900px 620px at 18% -12%, rgba(219, 208, 255, 0.55), transparent 62%),
     var(--bg);
   color: var(--ink);
   font-family: var(--font);
@@ -86,17 +71,6 @@ body {
 
 body.modal-open {
   overflow: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(73, 55, 125, 0.11) 0.65px, transparent 0.65px);
-  background-size: 22px 22px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.28), transparent 70%);
 }
 
 button,
@@ -127,7 +101,14 @@ img {
 
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline-offset: 2px;
+}
+
+.svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .sr-only {
@@ -158,11 +139,11 @@ img {
    --------------------------------------------------------- */
 
 .app-shell {
-  width: min(1720px, 100%);
+  width: min(1680px, 100%);
   min-height: 100vh;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 306px minmax(0, 1fr);
+  grid-template-columns: 264px minmax(0, 1fr);
 }
 
 .sidebar {
@@ -172,53 +153,37 @@ img {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 28px 21px 22px;
-  overflow: hidden;
+  padding: 20px 14px 24px;
+  overflow-y: auto;
   border-right: 1px solid var(--line);
-  background: rgba(255, 252, 249, 0.66);
-  backdrop-filter: blur(26px) saturate(1.2);
-  -webkit-backdrop-filter: blur(26px) saturate(1.2);
+  background: rgba(252, 250, 255, 0.72);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(109, 89, 206, 0.2) transparent;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-width: 0;
+  gap: 10px;
+  margin: 0 4px 20px;
   color: var(--ink);
 }
 
 .brand-mark {
-  position: relative;
-  width: 47px;
-  height: 47px;
-  flex: 0 0 47px;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
   display: grid;
   place-items: center;
-  border-radius: 16px;
+  border-radius: 11px;
   color: #ffffff;
-  background: linear-gradient(145deg, #8170e4 0%, #6550c7 52%, #ad98ec 100%);
-  box-shadow:
-    0 14px 26px -14px rgba(91, 70, 181, 0.8),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
-  transform: rotate(-4deg);
-}
-
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  top: 6px;
-  right: 7px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #ffe7a9;
-  box-shadow: 0 0 0 3px rgba(255, 231, 169, 0.18);
+  background: linear-gradient(145deg, #8170e4 0%, #6550c7 60%, #7c68d8 100%);
+  box-shadow: 0 6px 14px -8px rgba(91, 70, 181, 0.9);
 }
 
 .brand-mark .icon {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   stroke-width: 1.7;
 }
 
@@ -229,130 +194,127 @@ img {
 
 .brand-kicker {
   display: block;
-  margin: 0 0 2px;
-  color: #9c94af;
-  font-size: 8.5px;
+  color: #9a93ae;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.19em;
-  line-height: 1;
+  letter-spacing: 0.16em;
+  line-height: 1.3;
   text-transform: uppercase;
 }
 
 .brand-name {
   display: block;
-  margin: 0;
-  font-size: 14.5px;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: -0.022em;
-  line-height: 1.2;
-  white-space: nowrap;
+  letter-spacing: -0.012em;
+  line-height: 1.3;
 }
 
 .brand-sub {
   display: block;
-  margin: 3px 0 0;
+  margin-top: 1px;
   color: var(--muted);
-  font-size: 9.5px;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: auto;
+  padding: 14px 6px 0;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
   font-weight: 600;
-  line-height: 1.2;
+}
+
+.sidebar-links a {
+  color: #6a5f8e;
+  border-bottom: 1px solid rgba(106, 95, 142, 0.28);
+}
+
+.sidebar-links a:hover {
+  color: var(--accent-deep);
+  border-color: currentColor;
 }
 
 .side-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 30px 2px 10px;
-  color: #9a92ac;
-  font-size: 8.5px;
+  margin: 0 6px 8px;
+  color: var(--faint);
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .side-heading span:last-child {
-  color: #b1aabf;
-  letter-spacing: 0.06em;
+  color: #b3adc2;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .theme-nav {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  min-height: 0;
-  padding-right: 3px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(98, 78, 158, 0.19) transparent;
-}
-
-.theme-nav::-webkit-scrollbar {
-  width: 5px;
-}
-
-.theme-nav::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: rgba(98, 78, 158, 0.19);
+  gap: 2px;
 }
 
 .theme-btn {
   --tc: var(--accent);
   --ts: var(--accent-soft);
-  position: relative;
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) auto;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
   align-items: center;
   gap: 9px;
   width: 100%;
-  min-height: 47px;
-  padding: 6px 9px;
-  border: 1px solid transparent;
-  border-radius: 14px;
+  height: 40px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 9px;
   background: transparent;
   color: var(--ink-soft);
   text-align: left;
   cursor: pointer;
-  transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+  transition: background 160ms ease, box-shadow 160ms ease;
 }
 
 .theme-btn:hover {
-  border-color: var(--line);
-  background: rgba(255, 255, 255, 0.74);
-  transform: translateX(2px);
+  background: #f2eefb;
 }
 
 .theme-btn[aria-pressed="true"] {
-  border-color: color-mix(in srgb, var(--tc) 20%, white);
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
   box-shadow:
-    0 12px 26px -23px rgba(48, 35, 96, 0.6),
-    inset 3px 0 0 var(--tc);
+    inset 2px 0 0 var(--tc),
+    0 1px 2px rgba(43, 37, 64, 0.07);
 }
 
 .theme-thumb {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  border-radius: 11px;
+  border-radius: 8px;
   background: var(--ts);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.68);
 }
 
 .theme-thumb img {
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   object-fit: contain;
-  filter: drop-shadow(0 3px 3px rgba(42, 31, 80, 0.13));
 }
 
 .theme-thumb .icon {
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
   color: var(--tc);
   stroke-width: 1.7;
 }
@@ -366,217 +328,60 @@ img {
   display: block;
   overflow: hidden;
   color: var(--ink-soft);
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: -0.012em;
-  line-height: 1.25;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.lang-zh .theme-name {
-  font-size: 12px;
-  letter-spacing: 0;
+.theme-btn[aria-pressed="true"] .theme-name {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .theme-count {
-  min-width: 27px;
-  height: 21px;
-  display: grid;
-  place-items: center;
-  padding: 0 6px;
-  border-radius: 8px;
-  background: #f2eef9;
-  color: #8e86a4;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  transition: background 180ms ease, color 180ms ease;
-}
-
-.theme-btn[aria-pressed="true"] .theme-count {
-  background: var(--ts);
-  color: color-mix(in srgb, var(--tc) 76%, #2c263f);
-}
-
-.side-note {
-  position: relative;
-  margin-top: 22px;
-  padding: 15px 15px 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.74);
-  border-radius: 18px;
-  background:
-    radial-gradient(circle at 110% -20%, rgba(255, 219, 191, 0.7), transparent 55%),
-    linear-gradient(145deg, #f1ecfd, #fbf4f1);
-  box-shadow: 0 18px 38px -36px rgba(50, 37, 95, 0.55);
-}
-
-.side-note::after {
-  content: "鉁?;
-  position: absolute;
-  right: 10px;
-  bottom: 3px;
-  color: rgba(101, 77, 175, 0.18);
-  font-size: 30px;
+  color: #9a93ad;
+  font-size: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
   line-height: 1;
 }
 
-.side-note-head {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin: 0 0 5px;
-  color: #5b4b91;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.side-note-head .icon {
-  width: 13px;
-  height: 13px;
-}
-
-.side-note p {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  padding-right: 9px;
-  color: #71678a;
-  font-size: 10px;
-  line-height: 1.55;
-}
-
-.sidebar-foot {
-  margin-top: 14px;
-  padding: 0 3px;
-  color: #a39cb2;
-  font-size: 8.5px;
-  line-height: 1.55;
-}
-
-.sidebar-foot a {
-  color: #877bb0;
-  text-decoration: underline;
-  text-decoration-color: rgba(135, 123, 176, 0.35);
-  text-underline-offset: 2px;
-}
-
 /* ---------------------------------------------------------
-   Main column & topbar
+   Main column
    --------------------------------------------------------- */
 
 .main {
+  --pad-x: 32px;
   width: 100%;
-  max-width: 1420px;
-  padding: 22px 36px 54px;
   min-width: 0;
-}
-
-.topbar {
-  min-height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 18px;
-}
-
-.crumb {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  min-width: 0;
-  color: #a49db2;
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.crumb .sep {
-  color: #c3bdcb;
-}
-
-.crumb .current {
-  color: #6e6682;
-}
-
-.crumb .crumb-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  margin-left: 5px;
-  padding: 4px 8px;
-  border: 1px solid rgba(103, 82, 160, 0.12);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.44);
-  color: #8b81a4;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.crumb .crumb-pill::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #84b092;
-}
-
-.top-actions {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  flex: 0 0 auto;
-}
-
-.updated {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #9189a3;
-  font-size: 8.5px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.updated::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #7cae8d;
-  box-shadow: 0 0 0 3px rgba(124, 174, 141, 0.12);
+  padding: 14px var(--pad-x) 52px;
 }
 
 .lang-switch {
+  flex: 0 0 auto;
   display: inline-flex;
-  align-items: center;
   gap: 2px;
+  height: 42px;
   padding: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.68);
-  box-shadow: 0 7px 20px -16px rgba(47, 35, 88, 0.45);
-  backdrop-filter: blur(12px);
+  border-radius: 11px;
+  background: #ece8f6;
 }
 
 .lang-switch button {
-  height: 25px;
-  min-width: 36px;
+  min-width: 38px;
+  height: 34px;
   padding: 0 9px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 8px;
   background: transparent;
-  color: #8e86a0;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  color: #746e8a;
+  font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
 .lang-switch button:hover {
@@ -584,450 +389,65 @@ img {
 }
 
 .lang-switch button[aria-pressed="true"] {
-  background: var(--ink);
-  color: #ffffff;
-  box-shadow: 0 5px 13px -7px rgba(47, 41, 71, 0.65);
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(43, 37, 64, 0.14);
 }
 
 .lang-switch .lang-zh-btn {
-  min-width: 44px;
-  font-size: 10px;
-  letter-spacing: 0.04em;
+  min-width: 46px;
 }
 
 /* ---------------------------------------------------------
-   Hero
-   --------------------------------------------------------- */
-
-.hero {
-  position: relative;
-  min-height: 286px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 310px;
-  align-items: stretch;
-  gap: 18px;
-  padding: 35px 38px 31px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.84);
-  border-radius: var(--radius-xl);
-  background:
-    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.9), transparent 32%),
-    linear-gradient(122deg, var(--hero-a) 0%, #fffdf8 54%, var(--hero-b) 100%);
-  box-shadow:
-    0 36px 92px -76px rgba(46, 31, 91, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  isolation: isolate;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -98px;
-  left: 36%;
-  width: 300px;
-  height: 300px;
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 26px rgba(255, 255, 255, 0.16),
-    0 0 0 57px rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: auto -70px -120px auto;
-  width: 310px;
-  height: 310px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.52), transparent 66%);
-  pointer-events: none;
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 0;
-}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 7px;
-  max-width: 100%;
-  padding: 5px 9px 5px 7px;
-  border: 1px solid rgba(255, 255, 255, 0.78);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.44);
-  color: #73688f;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  line-height: 1.2;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-}
-
-.hero-eyebrow::before {
-  content: "鉁?;
-  color: var(--accent);
-  font-size: 10px;
-  line-height: 1;
-}
-
-.hero-title {
-  max-width: 690px;
-  margin: 17px 0 12px;
-  color: #2b2541;
-  font-size: clamp(38px, 4.2vw, 55px);
-  font-weight: 600;
-  letter-spacing: -0.048em;
-  line-height: 0.99;
-}
-
-.hero-title .soft {
-  color: var(--accent);
-}
-
-.hero-title .thin {
-  font-weight: 500;
-}
-
-.lang-zh .hero-title {
-  font-size: clamp(36px, 3.9vw, 50px);
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-}
-
-.hero-sub {
-  max-width: 548px;
-  margin: 0;
-  color: #756c89;
-  font-size: 12.5px;
-  font-weight: 500;
-  line-height: 1.7;
-}
-
-.lang-zh .hero-sub {
-  max-width: 570px;
-  font-size: 12.5px;
-  letter-spacing: 0.01em;
-  line-height: 1.8;
-}
-
-.hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 22px;
-}
-
-.hero-stat {
-  min-width: 88px;
-  padding: 9px 13px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.76);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px);
-}
-
-.hero-stat strong {
-  display: block;
-  color: #332c4b;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-
-.hero-stat span {
-  display: block;
-  margin-top: 3px;
-  color: #8e85a2;
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.hero-stats-note {
-  align-self: center;
-  max-width: 90px;
-  margin-left: 2px;
-  color: #948ba7;
-  font-size: 8.5px;
-  line-height: 1.45;
-}
-
-.hero-art {
-  position: relative;
-  z-index: 3;
-  min-height: 230px;
-  display: grid;
-  place-items: center;
-}
-
-.hero-orbit {
-  position: absolute;
-  width: 238px;
-  height: 238px;
-  border: 1px dashed rgba(88, 68, 146, 0.22);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.94) 0 37%, transparent 38%),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.64), transparent 68%);
-}
-
-.hero-orbit::before,
-.hero-orbit::after {
-  content: "鉁?;
-  position: absolute;
-  color: rgba(95, 75, 155, 0.38);
-  font-size: 14px;
-  line-height: 1;
-}
-
-.hero-orbit::before {
-  top: 19px;
-  left: 30px;
-  transform: rotate(-12deg);
-}
-
-.hero-orbit::after {
-  right: 21px;
-  bottom: 35px;
-  font-size: 10px;
-  color: rgba(195, 125, 125, 0.58);
-}
-
-.hero-main-img {
-  position: relative;
-  z-index: 3;
-  width: 172px;
-  height: 172px;
-  object-fit: contain;
-  filter: drop-shadow(0 22px 24px rgba(59, 43, 108, 0.2));
-  animation: heroFloat 6s ease-in-out infinite;
-}
-
-.hero-mini {
-  position: absolute;
-  z-index: 4;
-  width: 76px;
-  height: 76px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow:
-    0 18px 28px -22px rgba(51, 36, 102, 0.58),
-    inset 0 1px 0 #ffffff;
-  backdrop-filter: blur(8px);
-}
-
-.hero-mini img {
-  width: 66px;
-  height: 66px;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 7px rgba(51, 36, 102, 0.12));
-}
-
-.hero-mini--a {
-  top: 1px;
-  right: 0;
-  transform: rotate(7deg);
-}
-
-.hero-mini--b {
-  bottom: 3px;
-  left: -2px;
-  transform: rotate(-7deg);
-}
-
-.hero-stamp {
-  position: absolute;
-  z-index: 5;
-  right: 4px;
-  bottom: 7px;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  background: #2f2947;
-  color: #ffffff;
-  box-shadow: 0 18px 30px -15px rgba(47, 41, 71, 0.55);
-  transform: rotate(7deg);
-}
-
-.hero-stamp strong {
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.hero-stamp span {
-  margin-top: 4px;
-  color: #c8c1dc;
-  font-size: 6.5px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-@keyframes heroFloat {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-1deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-}
-
-/* ---------------------------------------------------------
-   Order essentials
-   --------------------------------------------------------- */
-
-.essentials {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin: 16px 0 18px;
-}
-
-.essential {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 13px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
-  background: rgba(255, 253, 250, 0.62);
-  box-shadow: 0 13px 30px -29px rgba(48, 35, 93, 0.55);
-  backdrop-filter: blur(9px);
-}
-
-.essential-icon {
-  width: 31px;
-  height: 31px;
-  flex: 0 0 31px;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  background: var(--accent-soft);
-  color: var(--accent-deep);
-}
-
-.essential-icon .icon {
-  width: 16px;
-  height: 16px;
-  stroke-width: 1.65;
-}
-
-.essential:nth-child(2) .essential-icon {
-  background: #fdf0e7;
-  color: #b4753f;
-}
-
-.essential:nth-child(3) .essential-icon {
-  background: #eaf4ee;
-  color: #4f8a6c;
-}
-
-.essential strong {
-  display: block;
-  color: #4b4462;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: -0.005em;
-  line-height: 1.3;
-}
-
-.essential p {
-  margin: 3px 0 0;
-  color: #8e869f;
-  font-size: 9px;
-  line-height: 1.5;
-}
-
-.lang-zh .essential strong {
-  font-size: 10.5px;
-}
-
-.lang-zh .essential p {
-  font-size: 9.5px;
-  line-height: 1.6;
-}
-
-/* ---------------------------------------------------------
-   Browser / controls
+   Search + filters (sticky bar)
    --------------------------------------------------------- */
 
 .browser {
-  position: relative;
-  z-index: 6;
-  margin-top: 18px;
-  padding: 16px 17px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 24px;
-  background: rgba(255, 253, 250, 0.82);
-  box-shadow:
-    0 26px 58px -56px rgba(48, 35, 93, 0.55),
-    inset 0 1px 0 #ffffff;
-  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  margin: 0 calc(-1 * var(--pad-x));
+  padding: 12px var(--pad-x) 10px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(246, 244, 251, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .toolbar {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
 }
 
 .search-field {
-  position: relative;
   flex: 1 1 auto;
   min-width: 0;
-  height: 45px;
+  height: 42px;
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 0 11px 0 13px;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  background: #f6f2fa;
-  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  gap: 8px;
+  padding: 0 8px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #ffffff;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
 .search-field:focus-within {
-  border-color: rgba(var(--accent-rgb), 0.28);
-  background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.075);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
 }
 
 .search-field .search-icon {
-  width: 17px;
-  height: 17px;
-  flex: 0 0 17px;
-  color: #958cab;
-  stroke-width: 1.8;
+  width: 16px;
+  height: 16px;
+  color: #9a93ae;
+  stroke-width: 1.9;
 }
 
 .search-field input {
+  flex: 1 1 auto;
   width: 100%;
   min-width: 0;
   height: 100%;
@@ -1036,12 +456,11 @@ img {
   outline: 0;
   background: transparent;
   color: var(--ink);
-  font-size: 12.5px;
-  font-weight: 500;
+  font-size: 14px;
 }
 
 .search-field input::placeholder {
-  color: #a69eb7;
+  color: #a8a2b8;
   opacity: 1;
 }
 
@@ -1057,35 +476,28 @@ img {
   display: grid;
   place-items: center;
   padding: 0 5px;
-  border: 1px solid rgba(97, 78, 155, 0.13);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.78);
-  color: #a49bb7;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #faf8fe;
+  color: #a29bb5;
   font-family: var(--font);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1;
-  box-shadow: 0 1px 0 rgba(75, 59, 123, 0.08);
 }
 
 .search-clear {
-  width: 24px;
-  height: 24px;
-  flex: 0 0 24px;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
   display: none;
   place-items: center;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: #e9e3f4;
-  color: #756990;
+  background: #ece8f6;
+  color: #6f6986;
   cursor: pointer;
-}
-
-.search-clear .icon {
-  width: 12px;
-  height: 12px;
-  stroke-width: 2;
 }
 
 .search-field.has-value .search-clear {
@@ -1096,165 +508,111 @@ img {
   display: none;
 }
 
-.favorites-toggle {
+.search-clear:hover {
+  background: #e3ddf2;
+}
+
+.search-clear .icon {
+  width: 11px;
+  height: 11px;
+  stroke-width: 2.2;
+}
+
+.view-switch {
   flex: 0 0 auto;
-  height: 45px;
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 11px;
+  background: #ece8f6;
+}
+
+.view-switch button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 0 11px;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  background: #f6f2fa;
-  color: #6d6581;
-  font-size: 10px;
+  gap: 6px;
+  height: 36px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #6f6986;
+  font-size: 12.5px;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
-  transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease,
-    box-shadow 180ms ease;
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
-.favorites-toggle .icon {
-  width: 15px;
-  height: 15px;
-  color: #a17290;
-  stroke-width: 1.8;
-  transition: fill 180ms ease, transform 180ms ease;
+.view-switch button:hover {
+  color: var(--ink);
 }
 
-.favorites-toggle:hover {
-  border-color: #edd4df;
-  background: #fdf2f6;
+.view-switch button[aria-pressed="true"] {
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(43, 37, 64, 0.14);
 }
 
-.favorites-toggle.is-active {
-  border-color: #f0c9d9;
-  background: #fff0f5;
-  color: #a94f75;
-  box-shadow: 0 9px 21px -18px rgba(169, 79, 117, 0.55);
+.view-switch .icon {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.9;
 }
 
-.favorites-toggle.is-active .icon {
-  fill: #d4668c;
-  color: #d4668c;
+.view-switch button[data-view="favorites"] .icon {
+  color: #c46a90;
 }
 
-.favorites-count {
+.view-switch button[data-view="acquired"] .icon {
+  color: #5c9677;
+}
+
+.view-switch button[data-view="favorites"][aria-pressed="true"] .icon {
+  fill: currentColor;
+}
+
+.view-count {
   min-width: 18px;
-  height: 18px;
+  height: 17px;
   display: inline-grid;
   place-items: center;
-  padding: 0 5px;
-  border-radius: 6px;
-  background: #ebe4f5;
-  color: #8e82a3;
-  font-size: 8px;
+  padding: 0 4px;
+  border-radius: 5px;
+  background: #ded9ee;
+  color: #6a6382;
+  font-size: 10.5px;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
   line-height: 1;
-  transition: background 180ms ease, color 180ms ease;
 }
 
-.favorites-toggle.is-active .favorites-count {
-  background: #ffffff;
-  color: #b3557a;
-}
-
-.acquired-toggle {
-  flex: 0 0 auto;
-  height: 45px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  padding: 0 11px;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  background: #f6f2fa;
-  color: #6d6581;
-  font-size: 10px;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-  transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.acquired-toggle .icon {
-  width: 15px;
-  height: 15px;
-  color: #7c9a8d;
-  stroke-width: 2;
-  transition: color 180ms ease, transform 180ms ease;
-}
-
-.acquired-toggle:hover {
-  border-color: #d2e8dd;
-  background: #f2faf6;
-}
-
-.acquired-toggle.is-active {
-  border-color: #c8e6d6;
-  background: #eaf7f0;
-  color: #3f8064;
-  box-shadow: 0 9px 21px -18px rgba(63, 128, 100, 0.55);
-}
-
-.acquired-toggle.is-active .icon {
-  color: #3f8f6c;
-  stroke-width: 2.4;
-}
-
-.acquired-count {
-  min-width: 18px;
-  height: 18px;
-  display: inline-grid;
-  place-items: center;
-  padding: 0 5px;
-  border-radius: 6px;
-  background: #e6efe9;
-  color: #839a8e;
-  font-size: 8px;
-  font-weight: 700;
-  line-height: 1;
-  transition: background 180ms ease, color 180ms ease;
-}
-
-.acquired-toggle.is-active .acquired-count {
-  background: #ffffff;
-  color: #3f8064;
+.view-switch button[aria-pressed="true"] .view-count {
+  background: #f2eefc;
+  color: var(--accent-deep);
 }
 
 .sort-wrap {
-  position: relative;
-  flex: 0 0 188px;
-  height: 45px;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0 9px 0 12px;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  background: #f6f2fa;
+  height: 42px;
+  padding: 0 7px 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #ffffff;
 }
 
 .sort-wrap .icon {
   width: 14px;
   height: 14px;
-  flex: 0 0 14px;
-  color: #948ba8;
+  color: #9a93ae;
 }
 
 .sort-wrap select {
-  width: 100%;
-  min-width: 0;
+  max-width: 132px;
   height: 100%;
   padding: 0 16px 0 0;
   border: 0;
@@ -1263,138 +621,176 @@ img {
   background: transparent
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%238c82a3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
     no-repeat right center;
-  color: #6d6581;
-  font-size: 10.5px;
+  color: #5d5777;
+  font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.filters-toggle {
+  display: none;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #ffffff;
+  color: #5d5777;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filters-toggle .icon {
+  width: 14px;
+  height: 14px;
+  color: #8d87a1;
+}
+
+.filters-toggle[aria-expanded="true"] {
+  border-color: rgba(var(--accent-rgb), 0.4);
+  background: #ffffff;
+  color: var(--accent-deep);
+}
+
+.filters-count {
+  min-width: 17px;
+  height: 17px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 4px;
+  border-radius: 5px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.filters-count[hidden] {
+  display: none;
 }
 
 .filters {
   display: flex;
   flex-direction: column;
-  margin-top: 14px;
-  padding-top: 2px;
-  border-top: 1px dashed rgba(81, 61, 137, 0.12);
+  gap: 4px;
+  margin-top: 8px;
 }
 
 .filter-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
   min-width: 0;
-  padding: 12px 2px;
-}
-
-.filter-row + .filter-row {
-  border-top: 1px solid rgba(99, 79, 155, 0.065);
 }
 
 .filter-label {
-  width: 84px;
-  flex: 0 0 84px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  padding-top: 0;
-  color: #7a7089;
-  font-size: 13px;
+  color: #8b849f;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.reward-label {
-  display: inline-flex;
-  align-items: center;
 }
 
 .chip-list {
-  flex: 1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
+  gap: 6px;
   min-width: 0;
+  padding: 2px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 26px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 26px), transparent 100%);
 }
 
+.chip-list.at-end {
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.chip-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* The material row is long, so let it wrap onto a second line
+   instead of running off the edge of the panel. */
 .chip-list--materials {
-  gap: 7px;
+  flex-wrap: wrap;
+  row-gap: 6px;
+  overflow: visible;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+@media (min-width: 861px) {
+  .filter-row--materials {
+    align-items: start;
+  }
+
+  .filter-row--materials .filter-label {
+    padding-top: 7px;
+  }
 }
 
 .chip {
-  height: 34px;
+  height: 30px;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 0 12px;
+  gap: 6px;
+  padding: 0 9px;
   border: 1px solid transparent;
-  border-radius: 10px;
-  background: #f5f1fb;
-  color: #716987;
-  font-size: 12px;
-  font-weight: 600;
+  border-radius: 8px;
+  background: #efecf8;
+  color: #6a6383;
+  font-size: 12.5px;
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  transition:
-    background 170ms ease,
-    color 170ms ease,
-    border-color 170ms ease,
-    box-shadow 170ms ease;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
 }
 
 .chip:hover {
-  border-color: rgba(var(--accent-rgb), 0.14);
-  background: #efe9fa;
+  background: #e8e3f6;
 }
 
 .chip[aria-pressed="true"] {
   border-color: var(--ink);
   background: var(--ink);
   color: #ffffff;
-  box-shadow: 0 7px 16px -12px rgba(47, 41, 71, 0.65);
 }
 
 .chip:disabled {
-  opacity: 0.35;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .chip:disabled:hover {
-  border-color: transparent;
-  background: #f5f1fb;
+  background: #efecf8;
 }
 
 .chip-count {
-  min-width: 18px;
-  padding: 3px 5px 2px;
-  border-radius: 6px;
-  background: rgba(97, 75, 156, 0.08);
-  color: #9b92ad;
-  font-size: 10px;
+  color: #9a93ad;
+  font-size: 10.5px;
   font-weight: 700;
-  line-height: 1;
-  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .chip[aria-pressed="true"] .chip-count {
-  background: rgba(255, 255, 255, 0.16);
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .chip .currency-dot {
-  width: 13px;
-  height: 13px;
   display: inline-grid;
   place-items: center;
-  border-radius: 0;
-  background: transparent;
-}
-
-.chip .currency-dot .icon {
-  width: 10px;
-  height: 10px;
-  stroke-width: 2;
 }
 
 .currency-chip-img {
@@ -1405,121 +801,68 @@ img {
 }
 
 .material-chip-img {
-  width: 17px;
-  height: 17px;
-  flex: 0 0 17px;
+  width: 15px;
+  height: 15px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 1px 1px rgba(67, 45, 102, 0.1));
 }
 
-.chip[aria-pressed="true"] .currency-dot {
-  background: transparent;
-  color: #ffffff;
+/* ---------------------------------------------------------
+   Results bar
+   --------------------------------------------------------- */
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 26px;
+  margin: 16px 0 10px;
+}
+
+.results-count {
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.showing-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
 }
 
 .reset-btn {
+  flex: 0 0 auto;
+  height: 26px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  height: 34px;
+  gap: 4px;
   margin-left: auto;
-  padding: 0 6px;
-  border: 0;
+  padding: 0 9px;
+  border: 1px solid var(--line);
   border-radius: 7px;
-  background: transparent;
-  color: #9990ab;
-  font-size: 10px;
+  background: #ffffff;
+  color: #6f6986;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
-  transition: color 170ms ease;
+  transition: color 150ms ease, border-color 150ms ease;
 }
 
 .reset-btn:hover {
+  border-color: rgba(var(--accent-rgb), 0.35);
   color: var(--accent-deep);
-}
-
-.reset-btn .icon {
-  width: 11px;
-  height: 11px;
 }
 
 .reset-btn[hidden] {
   display: none;
 }
 
-/* ---------------------------------------------------------
-   Results head
-   --------------------------------------------------------- */
-
-.results-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 23px 3px 12px;
-}
-
-.results-copy {
-  min-width: 0;
-}
-
-.results-kicker {
-  margin: 0 0 3px;
-  color: #a097b3;
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.results-title {
-  margin: 0;
-  color: #352e4e;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-}
-
-.lang-zh .results-title {
-  font-size: 19px;
-  letter-spacing: -0.02em;
-}
-
-.results-meta {
-  margin: 5px 0 0;
-  color: #948ca7;
-  font-size: 10px;
-  line-height: 1.45;
-}
-
-.results-meta strong {
-  color: #6c6382;
-  font-weight: 700;
-}
-
-.results-badge {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-  padding: 7px 10px 6px;
-  border: 1px solid rgba(99, 79, 155, 0.1);
-  border-radius: 11px;
-  background: rgba(255, 255, 255, 0.62);
-  color: #9b92ad;
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-
-.results-badge strong {
-  color: #544b6b;
-  font-size: 13px;
-  letter-spacing: -0.02em;
+.reset-btn .icon {
+  width: 11px;
+  height: 11px;
 }
 
 /* ---------------------------------------------------------
@@ -1528,8 +871,8 @@ img {
 
 .offer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(226px, 1fr));
+  gap: 12px;
   align-items: stretch;
 }
 
@@ -1541,126 +884,42 @@ img {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(71, 55, 118, 0.085);
-  border-radius: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   background: var(--surface);
-  box-shadow:
-    0 18px 40px -38px rgba(45, 32, 90, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 2px rgba(43, 37, 64, 0.045);
   cursor: pointer;
   outline: none;
-  animation: cardIn 480ms cubic-bezier(0.22, 0.8, 0.2, 1) both;
-  animation-delay: min(calc(var(--i, 0) * 22ms), 330ms);
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
+  animation: cardIn 320ms ease both;
+  animation-delay: min(calc(var(--i, 0) * 14ms), 160ms);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .offer-card:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--tc) 20%, transparent);
-  box-shadow:
-    0 26px 50px -30px rgba(45, 32, 90, 0.31),
-    inset 0 1px 0 rgba(255, 255, 255, 0.98);
-}
-
-.offer-card:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  transform: translateY(-2px);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  box-shadow: 0 12px 26px -18px rgba(43, 37, 64, 0.38);
 }
 
 .card-media {
   position: relative;
-  height: 146px;
+  height: 130px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 104%, rgba(255, 255, 255, 0.95), transparent 54%),
-    linear-gradient(142deg, var(--ts) 0%, color-mix(in srgb, var(--ts) 42%, #fffdfa) 100%);
-}
-
-.card-media::before {
-  content: "";
-  position: absolute;
-  width: 126px;
-  height: 126px;
-  border: 1px dashed color-mix(in srgb, var(--tc) 24%, transparent);
-  border-radius: 50%;
-  opacity: 0.7;
-  transition: transform 500ms ease;
-}
-
-.offer-card:hover .card-media::before {
-  transform: scale(1.05) rotate(8deg);
-}
-
-.card-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(color-mix(in srgb, var(--tc) 20%, transparent) 0.7px, transparent 0.7px);
-  background-size: 14px 14px;
-  mask-image: radial-gradient(circle at 50% 50%, transparent 0 25%, #000 100%);
-  opacity: 0.45;
+  background: linear-gradient(150deg, var(--ts) 0%, #fbf9ff 100%);
 }
 
 .card-media img {
-  position: relative;
-  z-index: 2;
-  width: 103px;
-  height: 103px;
+  width: 92px;
+  height: 92px;
   object-fit: contain;
-  filter: drop-shadow(0 12px 13px rgba(47, 34, 91, 0.17));
-  transition: transform 260ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  filter: drop-shadow(0 8px 10px rgba(47, 34, 91, 0.14));
+  transition: transform 200ms ease;
 }
 
 .offer-card:hover .card-media img {
-  transform: translateY(-2px) scale(1.045);
-}
-
-.card-spark {
-  position: absolute;
-  z-index: 1;
-  color: color-mix(in srgb, var(--tc) 55%, transparent);
-  font-size: 10px;
-  line-height: 1;
-  opacity: 0.65;
-}
-
-.card-spark--a {
-  top: 22px;
-  right: 37px;
-}
-
-.card-spark--b {
-  bottom: 25px;
-  left: 34px;
-  font-size: 7px;
-}
-
-.reward-badge {
-  position: absolute;
-  top: 9px;
-  left: 9px;
-  z-index: 4;
-  height: 23px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 0 7px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.78);
-  color: #605774;
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  box-shadow: 0 4px 12px -8px rgba(47, 34, 91, 0.4);
-  backdrop-filter: blur(8px);
+  transform: scale(1.04);
 }
 
 .reward-dot {
@@ -1669,95 +928,83 @@ img {
   flex: 0 0 6px;
   border-radius: 50%;
   background: var(--reward-color, #7f68d2);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--reward-color, #7f68d2) 14%, transparent);
 }
 
 .card-actions {
-  position: absolute;
-  top: 9px;
-  right: 9px;
-  z-index: 6;
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
 }
 
 .favorite-btn,
 .acquired-btn {
-  width: 29px;
-  height: 29px;
+  width: 26px;
+  height: 26px;
   display: grid;
   place-items: center;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  border-radius: 9px;
-  background: rgba(255, 255, 255, 0.8);
-  color: #a293ac;
-  box-shadow: 0 4px 12px -8px rgba(47, 34, 91, 0.4);
-  backdrop-filter: blur(8px);
+  border: 0;
+  border-radius: 7px;
+  background: #efeaf8;
+  color: #7f7796;
   cursor: pointer;
-  transition:
-    color 170ms ease,
-    background 170ms ease,
-    border-color 170ms ease,
-    transform 170ms ease;
+  transition: color 150ms ease, background 150ms ease;
 }
 
 .favorite-btn .icon,
 .acquired-btn .icon {
   width: 14px;
   height: 14px;
-  fill: none;
   stroke-width: 1.9;
-  transition: fill 170ms ease, transform 170ms ease;
 }
 
 .favorite-btn:hover {
+  background: #fbe9f0;
   color: #c75b84;
-  background: #fffafb;
-  border-color: #f1d4df;
-  transform: translateY(-1px);
 }
 
 .favorite-btn.is-fav {
-  color: #cf5e86;
-  background: #fff0f5;
-  border-color: #f2cbdb;
+  background: #e0537f;
+  color: #ffffff;
+}
+
+.favorite-btn.is-fav:hover {
+  background: #d34670;
+  color: #ffffff;
 }
 
 .favorite-btn.is-fav .icon {
   fill: currentColor;
-  animation: heartPop 300ms cubic-bezier(0.22, 0.8, 0.2, 1);
-}
-
-.acquired-btn {
-  color: #93a69e;
+  animation: heartPop 260ms ease;
 }
 
 .acquired-btn:hover {
-  color: #4b8f70;
-  background: #f7fcf9;
-  border-color: #cfe8dc;
-  transform: translateY(-1px);
+  background: #e9f6ef;
+  color: #3f8a67;
 }
 
 .acquired-btn.is-acquired {
-  color: #438c6b;
-  background: #eef9f3;
-  border-color: #c8e6d6;
+  background: #3f9a72;
+  color: #ffffff;
+}
+
+.acquired-btn.is-acquired:hover {
+  background: #358a65;
+  color: #ffffff;
 }
 
 .acquired-btn.is-acquired .icon {
-  stroke-width: 2.4;
-  animation: checkPop 280ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  stroke-width: 2.7;
+  animation: checkPop 240ms ease;
 }
 
 @keyframes heartPop {
   0% {
-    transform: scale(0.65);
+    transform: scale(0.7);
   }
   60% {
-    transform: scale(1.18);
+    transform: scale(1.15);
   }
   100% {
     transform: scale(1);
@@ -1766,290 +1013,123 @@ img {
 
 @keyframes checkPop {
   0% {
-    transform: scale(0.7);
+    transform: scale(0.75);
   }
   60% {
-    transform: scale(1.16);
+    transform: scale(1.12);
   }
   100% {
     transform: scale(1);
   }
 }
 
-.reward-item {
-  --reward-color: #7560d1;
-}
-.reward-blueprint {
-  --reward-color: #4c82cc;
-}
-.reward-building {
-  --reward-color: #bb7f43;
-}
-.reward-unlock {
-  --reward-color: #559474;
-}
-.reward-action {
-  --reward-color: #c26086;
-}
-.reward-face {
-  --reward-color: #b78a32;
-}
-
 .card-body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 12px 14px 13px;
+  padding: 10px 12px 12px;
 }
 
-.card-theme {
+.card-head {
   display: flex;
-  align-items: center;
-  gap: 5px;
-  min-width: 0;
-  margin: 0 0 5px;
-  color: #9b93ad;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.card-theme .theme-dot {
-  width: 4px;
-  height: 4px;
-  flex: 0 0 4px;
-  border-radius: 50%;
-  background: var(--tc);
-}
-
-.card-theme span:last-child {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .card-title {
-  min-height: 36px;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 38px;
   display: -webkit-box;
   overflow: hidden;
   margin: 0;
-  color: #332c4b;
+  color: #302a45;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: -0.018em;
-  line-height: 1.32;
+  letter-spacing: -0.012em;
+  line-height: 1.36;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 
-.card-foot {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-  min-height: 33px;
-  margin-top: auto;
-  padding-top: 10px;
-  border-top: 1px solid rgba(76, 58, 127, 0.075);
+.lang-zh .card-title {
+  letter-spacing: 0;
 }
 
-.cost-stack {
+.card-foot {
   display: flex;
-  flex: 0 1 auto;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 9px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.cost-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
 }
 
 .cost-line {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  min-width: 0;
-  white-space: nowrap;
-}
-
-.cost-amount {
-  color: #3d3555;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1;
-}
-
-.cost-type {
-  overflow: hidden;
-  max-width: 96px;
-  color: #958da8;
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 1.2;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ticket-line {
-  color: #7a7090;
-}
-
-.ticket-line > span:last-child {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.materials-block {
-  flex: 0 1 52%;
-  min-width: 0;
-  margin-left: auto;
-  padding-left: 10px;
-  border-left: 1px solid rgba(76, 58, 127, 0.09);
-}
-
-.materials-label {
-  margin: 0 0 5px;
-  color: #9d94ac;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.1;
-  text-transform: uppercase;
-}
-
-.material-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-}
-
-.material-row {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  min-width: 0;
-  color: #7b718e;
-  font-size: 9.5px;
-  line-height: 1.2;
-}
-
-.material-img {
-  width: 15px;
-  height: 15px;
-  flex: 0 0 15px;
-  display: block;
-  object-fit: contain;
-  filter: drop-shadow(0 1px 1px rgba(67, 45, 102, 0.1));
-}
-
-.material-name {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.material-qty {
-  margin-left: auto;
-  color: #594e70;
-  font-size: 9px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.price {
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-  min-width: 0;
-  white-space: nowrap;
-}
-
-.price-icon {
-  width: 15px;
-  height: 15px;
-  flex: 0 0 15px;
-  display: inline-grid;
-  place-items: center;
-  align-self: center;
-  border-radius: 5px;
-  background: var(--price-bg, #f4e9f4);
-  color: var(--price-color, #c06b9f);
-}
-
-.price-icon .icon {
-  width: 9px;
-  height: 9px;
-  stroke-width: 1.9;
-}
-
-.price-img {
-  width: 16px;
-  height: 16px;
-  flex: 0 0 16px;
-  align-self: center;
-  display: block;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 2px rgba(67, 45, 102, 0.12));
-}
-
-.price-amount {
-  color: #3d3555;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1;
-}
-
-.price-currency {
-  overflow: hidden;
-  max-width: 84px;
-  color: #958da8;
-  font-size: 8.5px;
-  font-weight: 600;
-  line-height: 1.2;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ticket-pill {
-  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  height: 23px;
-  padding: 0 7px;
-  border: 1px solid rgba(101, 78, 160, 0.09);
-  border-radius: 7px;
-  background: #f7f3fc;
-  color: #7d7096;
-  font-size: 7.5px;
-  font-weight: 700;
-  line-height: 1;
+  min-width: 0;
   white-space: nowrap;
 }
 
-.ticket-pill .icon {
-  width: 11px;
-  height: 11px;
-  color: #9b86ce;
-  stroke-width: 1.7;
+.pack-line {
+  gap: 3px;
 }
 
-.ticket-img {
+.cost-amount {
+  color: #3b3553;
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.cost-times {
+  margin-right: 1px;
+  color: var(--faint);
+  font-size: 0.78em;
+  font-weight: 600;
+}
+
+.price-img,
+.ticket-img,
+.pack-img {
   width: 16px;
   height: 16px;
   flex: 0 0 16px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 1px 1px rgba(67, 45, 102, 0.12));
 }
 
-.ticket-pill strong {
-  color: #5f5378;
-  font-size: 9px;
-  font-weight: 700;
+/* The pack artwork is detailed, so it needs a touch more room
+   than the flat currency and ticket icons. */
+.pack-img {
+  width: 18px;
+  height: 18px;
+  flex-basis: 18px;
+  margin-right: -1px;
+}
+
+.material-img {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 13px;
+  display: block;
+  object-fit: contain;
+}
+
+.material-qty {
+  color: #8d87a1;
+  font-size: 10.5px;
+  font-weight: 600;
 }
 
 /* Placeholder artwork for actions without an item image */
@@ -2057,46 +1137,32 @@ img {
 .action-art {
   position: relative;
   z-index: 2;
-  width: 86px;
-  height: 86px;
+  width: 78px;
+  height: 78px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.46);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.62);
   color: color-mix(in srgb, var(--tc) 78%, #3a2d60);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 16px 22px -21px rgba(48, 35, 93, 0.45);
-  transform: rotate(-3deg);
 }
 
 .action-art .icon {
-  width: 35px;
-  height: 35px;
-  stroke-width: 1.35;
-}
-
-.action-art::after {
-  content: "鉁?;
-  position: absolute;
-  top: 4px;
-  right: 8px;
-  font-size: 10px;
-  opacity: 0.55;
+  width: 34px;
+  height: 34px;
+  stroke-width: 1.4;
 }
 
 /* ---------------------------------------------------------
-   Empty & load more
+   Empty & loader
    --------------------------------------------------------- */
 
 .empty-state {
   display: grid;
   place-items: center;
-  padding: 50px 20px 44px;
-  border: 1px dashed rgba(90, 70, 148, 0.18);
-  border-radius: 22px;
-  background: rgba(255, 253, 250, 0.48);
+  padding: 44px 20px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.55);
   text-align: center;
 }
 
@@ -2105,56 +1171,55 @@ img {
 }
 
 .empty-orbit {
-  width: 78px;
-  height: 78px;
+  width: 52px;
+  height: 52px;
   display: grid;
   place-items: center;
-  margin-bottom: 14px;
-  border: 1px dashed rgba(105, 84, 168, 0.3);
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: #ffffff;
   color: var(--accent);
-  box-shadow:
-    0 0 0 10px rgba(255, 255, 255, 0.24),
-    0 0 0 22px rgba(255, 255, 255, 0.13);
 }
 
 .empty-orbit .icon {
-  width: 29px;
-  height: 29px;
-  stroke-width: 1.5;
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.6;
 }
 
 .empty-state h3 {
   margin: 0;
-  color: #4a4261;
+  color: var(--ink);
   font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 .empty-state p {
-  max-width: 340px;
-  margin: 6px 0 15px;
-  color: #948ca6;
-  font-size: 10px;
-  line-height: 1.55;
+  max-width: 360px;
+  margin: 6px 0 14px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.6;
 }
 
 .empty-clear {
-  height: 33px;
+  height: 32px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   padding: 0 12px;
-  border: 1px solid rgba(95, 75, 155, 0.13);
-  border-radius: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
   background: #ffffff;
-  color: #6d5b9b;
-  font-size: 9px;
-  font-weight: 700;
+  color: var(--accent-deep);
+  font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 8px 18px -16px rgba(47, 35, 88, 0.5);
+}
+
+.empty-clear:hover {
+  border-color: rgba(var(--accent-rgb), 0.35);
 }
 
 .empty-clear .icon {
@@ -2164,67 +1229,21 @@ img {
 
 .load-wrap {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 9px;
-  margin-top: 24px;
-}
-
-.load-btn {
-  height: 41px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 16px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 13px;
-  background: rgba(255, 255, 255, 0.76);
-  color: #5e5278;
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  box-shadow:
-    0 12px 24px -22px rgba(47, 35, 88, 0.55),
-    inset 0 1px 0 #ffffff;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-}
-
-.load-btn:hover {
-  transform: translateY(-1px);
-  background: #ffffff;
-  box-shadow:
-    0 17px 28px -22px rgba(47, 35, 88, 0.55),
-    inset 0 1px 0 #ffffff;
-}
-
-.load-btn .icon {
-  width: 13px;
-  height: 13px;
-  color: var(--accent);
-}
-
-.load-btn[hidden] {
-  display: none;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .infinite-loader {
-  min-height: 40px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  padding: 0 16px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  color: #776b8f;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  box-shadow:
-    0 12px 24px -22px rgba(47, 35, 88, 0.55),
-    inset 0 1px 0 #ffffff;
+  background: #ffffff;
+  color: #7a7390;
+  font-size: 12px;
 }
 
 .infinite-loader[hidden] {
@@ -2232,10 +1251,10 @@ img {
 }
 
 .loader-spinner {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 14px;
-  border: 2px solid rgba(var(--accent-rgb), 0.18);
+  width: 13px;
+  height: 13px;
+  flex: 0 0 13px;
+  border: 2px solid rgba(var(--accent-rgb), 0.2);
   border-top-color: var(--accent);
   border-radius: 50%;
   animation: loaderSpin 0.8s linear infinite;
@@ -2247,87 +1266,14 @@ img {
   }
 }
 
-.showing-label {
-  color: #a49cb4;
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.showing-label strong {
-  color: #7d7393;
-  font-weight: 700;
-}
-
 /* ---------------------------------------------------------
-   Footer
-   --------------------------------------------------------- */
-
-.footer {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 36px;
-  padding: 18px 4px 0;
-  border-top: 1px solid rgba(62, 48, 108, 0.08);
-}
-
-.footer-copy {
-  max-width: 620px;
-}
-
-.footer-title {
-  margin: 0 0 3px;
-  color: #9189a4;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.footer p {
-  margin: 0;
-  color: #a29aaf;
-  font-size: 8.5px;
-  line-height: 1.6;
-}
-
-.footer p + p {
-  margin-top: 3px;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 7px 14px;
-  flex: 0 0 auto;
-  padding-top: 2px;
-}
-
-.footer-links a {
-  color: #8a7fa8;
-  font-size: 8.5px;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: rgba(138, 127, 168, 0.28);
-  text-underline-offset: 3px;
-  transition: color 160ms ease;
-}
-
-.footer-links a:hover {
-  color: var(--accent-deep);
-}
-
-/* ---------------------------------------------------------
-   Dialog
+   Detail dialog
    --------------------------------------------------------- */
 
 dialog {
   max-width: none;
   max-height: none;
-  width: min(810px, calc(100vw - 34px));
+  width: min(760px, calc(100vw - 28px));
   padding: 0;
   overflow: visible;
   border: 0;
@@ -2336,97 +1282,71 @@ dialog {
 }
 
 dialog::backdrop {
-  background: rgba(38, 29, 66, 0.4);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
+  background: rgba(35, 29, 55, 0.44);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 dialog[open] {
-  animation: dialogIn 240ms cubic-bezier(0.22, 0.8, 0.2, 1) both;
+  animation: dialogIn 200ms ease both;
 }
 
 .modal-card {
   position: relative;
   display: grid;
-  grid-template-columns: 330px minmax(0, 1fr);
+  grid-template-columns: 290px minmax(0, 1fr);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 26px;
+  border-radius: 16px;
   background: var(--surface);
-  box-shadow: 0 45px 110px -35px rgba(30, 21, 61, 0.55);
+  box-shadow: 0 30px 80px -30px rgba(30, 21, 61, 0.5);
 }
 
 .modal-media {
   --tc: var(--accent);
   --ts: var(--accent-soft);
   position: relative;
-  min-height: 375px;
+  min-height: 330px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  padding: 28px;
-  background:
-    radial-gradient(circle at 50% 105%, rgba(255, 255, 255, 0.95), transparent 55%),
-    linear-gradient(145deg, var(--ts), color-mix(in srgb, var(--ts) 42%, #fffdfa));
-}
-
-.modal-media::before {
-  content: "";
-  position: absolute;
-  width: 224px;
-  height: 224px;
-  border: 1px dashed color-mix(in srgb, var(--tc) 27%, transparent);
-  border-radius: 50%;
-  opacity: 0.8;
-}
-
-.modal-media::after {
-  content: "鉁?;
-  position: absolute;
-  left: 42px;
-  bottom: 46px;
-  color: color-mix(in srgb, var(--tc) 55%, transparent);
-  font-size: 15px;
+  padding: 24px;
+  background: linear-gradient(150deg, var(--ts) 0%, #fbf9ff 100%);
 }
 
 .modal-media img {
-  position: relative;
-  z-index: 1;
-  width: 210px;
-  height: 210px;
+  width: 190px;
+  height: 190px;
   object-fit: contain;
-  filter: drop-shadow(0 24px 25px rgba(48, 34, 94, 0.2));
+  filter: drop-shadow(0 16px 18px rgba(48, 34, 94, 0.18));
 }
 
 .modal-media .action-art {
-  width: 154px;
-  height: 154px;
-  border-radius: 43px;
+  width: 140px;
+  height: 140px;
+  border-radius: 36px;
 }
 
 .modal-media .action-art .icon {
-  width: 62px;
-  height: 62px;
+  width: 54px;
+  height: 54px;
 }
 
 .modal-close {
   position: absolute;
-  top: 13px;
-  right: 13px;
+  top: 10px;
+  right: 10px;
   z-index: 5;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.74);
-  color: #6f6388;
+  background: rgba(255, 255, 255, 0.94);
+  color: #6f6986;
   cursor: pointer;
-  box-shadow: 0 7px 17px -14px rgba(47, 35, 88, 0.6);
-  backdrop-filter: blur(8px);
-  transition: background 170ms ease, color 170ms ease;
+  transition: background 150ms ease, color 150ms ease;
 }
 
 .modal-close:hover {
@@ -2435,100 +1355,68 @@ dialog[open] {
 }
 
 .modal-close .icon {
-  width: 15px;
-  height: 15px;
-  stroke-width: 2;
+  width: 13px;
+  height: 13px;
+  stroke-width: 2.1;
 }
 
 .modal-body {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: 32px 31px 27px;
+  padding: 26px 26px 22px;
 }
 
 .modal-eyebrow {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #a096b2;
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+  margin: 0;
+  color: #8b849f;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .modal-eyebrow .theme-dot {
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--tc, var(--accent));
 }
 
-.modal-reward {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 6px;
-  margin-top: 17px;
-  padding: 5px 8px;
-  border-radius: 8px;
-  background: var(--ts, var(--accent-soft));
-  color: #665974;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.modal-reward .reward-dot {
-  width: 6px;
-  height: 6px;
-}
-
 .modal-title {
-  margin: 10px 0 5px;
-  color: #2e2745;
-  font-size: 27px;
-  font-weight: 600;
-  letter-spacing: -0.045em;
-  line-height: 1.08;
+  margin: 6px 0 0;
+  color: var(--ink);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 .lang-zh .modal-title {
-  font-size: 24px;
-  letter-spacing: -0.03em;
-}
-
-.modal-theme {
-  margin: 0;
-  color: #8a819f;
-  font-size: 10.5px;
-  line-height: 1.5;
+  letter-spacing: 0;
 }
 
 .modal-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin: 19px 0 15px;
+  margin-top: 16px;
 }
 
 .modal-stat {
   min-width: 0;
-  padding: 10px 11px 9px;
-  border: 1px solid rgba(76, 58, 127, 0.075);
-  border-radius: 12px;
-  background: #f9f6fd;
+  padding: 9px 11px;
+  border-radius: 10px;
+  background: #f7f5fc;
 }
 
 .modal-stat > span {
   display: block;
-  color: #a098b1;
-  font-size: 7px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  text-transform: uppercase;
+  color: #8b849f;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .modal-stat strong {
@@ -2536,72 +1424,88 @@ dialog[open] {
   align-items: center;
   gap: 5px;
   min-width: 0;
-  margin-top: 5px;
-  color: #4a4161;
-  font-size: 10.5px;
+  margin-top: 3px;
+  color: #3b3553;
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.25;
-}
-
-.modal-stat strong .icon {
-  width: 12px;
-  height: 12px;
-  color: #9278c0;
+  line-height: 1.3;
 }
 
 .modal-icon-img {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 14px;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
   display: block;
   object-fit: contain;
 }
 
-.modal-requirement {
+.modal-row {
   display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  margin-top: auto;
-  padding: 11px 12px;
-  border: 1px solid rgba(var(--accent-rgb), 0.11);
-  border-radius: 12px;
-  background: var(--accent-mist);
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  color: #5f5875;
 }
 
-.modal-requirement .icon {
-  width: 16px;
-  height: 16px;
-  flex: 0 0 16px;
-  margin-top: 1px;
-  color: var(--accent);
+.modal-row-label {
+  min-width: 60px;
+  color: #8b849f;
+  font-size: 11.5px;
+  font-weight: 600;
 }
 
-.requirement-ticket {
-  width: 16px;
-  height: 16px;
-  flex: 0 0 16px;
-  margin-top: 1px;
+.modal-row-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.modal-materials {
+  margin-top: 14px;
+}
+
+.modal-materials[hidden] {
+  display: none;
+}
+
+.modal-section-title {
+  margin: 0 0 6px;
+  color: #8b849f;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.modal-material-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.modal-material {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 7px;
+  background: #f7f5fc;
+  color: #5f5875;
+  font-size: 12px;
+}
+
+.modal-material img {
+  width: 15px;
+  height: 15px;
   display: block;
   object-fit: contain;
-}
-
-.modal-requirement p {
-  margin: 0;
-  color: #6f6586;
-  font-size: 9.5px;
-  line-height: 1.55;
-}
-
-.modal-requirement strong {
-  color: #514668;
-  font-weight: 700;
 }
 
 .modal-note {
-  margin: 7px 0 0;
-  color: #a59dae;
-  font-size: 8px;
-  line-height: 1.5;
+  margin: 14px 0 0;
+  color: var(--faint);
+  font-size: 11.5px;
+  line-height: 1.6;
 }
 
 .modal-link {
@@ -2609,29 +1513,28 @@ dialog[open] {
   align-items: center;
   align-self: flex-start;
   gap: 5px;
-  margin-top: 12px;
+  margin-top: auto;
+  padding-top: 14px;
   color: var(--accent-deep);
-  font-size: 9px;
-  font-weight: 700;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.modal-link:hover {
   text-decoration: underline;
-  text-decoration-color: rgba(85, 66, 181, 0.3);
   text-underline-offset: 3px;
 }
 
 .modal-link .icon {
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   stroke-width: 2;
-}
-
-.modal-link:hover {
-  color: #3b2a8f;
 }
 
 @keyframes dialogIn {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.985);
+    transform: translateY(8px) scale(0.99);
   }
   to {
     opacity: 1;
@@ -2642,7 +1545,7 @@ dialog[open] {
 @keyframes cardIn {
   from {
     opacity: 0;
-    transform: translateY(9px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -2654,30 +1557,18 @@ dialog[open] {
    Responsive
    --------------------------------------------------------- */
 
-@media (max-width: 1199px) {
+@media (max-width: 1180px) {
   .app-shell {
-    grid-template-columns: 280px minmax(0, 1fr);
-  }
-
-  .sidebar {
-    padding-right: 17px;
-    padding-left: 17px;
+    grid-template-columns: 232px minmax(0, 1fr);
   }
 
   .main {
-    padding-right: 27px;
-    padding-left: 27px;
+    --pad-x: 24px;
   }
 
-  .hero {
-    grid-template-columns: minmax(0, 1fr) 275px;
-    padding-right: 30px;
-    padding-left: 30px;
-  }
-
-  .hero-art {
-    transform: scale(0.94);
-    transform-origin: center right;
+  .browser {
+    padding-top: 10px;
+    padding-bottom: 9px;
   }
 }
 
@@ -2687,40 +1578,35 @@ dialog[open] {
   }
 
   .sidebar {
-    position: relative;
-    top: auto;
+    position: static;
     height: auto;
-    display: block;
-    padding: 18px 22px 14px;
+    padding: 14px 20px 12px;
+    overflow: visible;
     border-right: 0;
     border-bottom: 1px solid var(--line);
-    background: rgba(255, 252, 249, 0.78);
   }
 
   .brand {
-    width: fit-content;
-  }
-
-  .brand-mark {
-    width: 43px;
-    height: 43px;
-    flex-basis: 43px;
-    border-radius: 14px;
-  }
-
-  .side-heading {
-    margin: 17px 2px 8px;
+    margin-bottom: 14px;
   }
 
   .theme-nav {
     flex-direction: row;
     gap: 6px;
-    margin: 0 -22px;
-    padding: 1px 22px 7px;
+    margin: 6px -20px 0;
+    padding: 2px 20px 6px;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x proximity;
     scrollbar-width: none;
+    scroll-snap-type: x proximity;
+    mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent 100%);
+  }
+
+  .sidebar-links {
+    gap: 4px 14px;
+    margin-top: 10px;
+    padding: 10px 2px 0;
   }
 
   .theme-nav::-webkit-scrollbar {
@@ -2729,369 +1615,159 @@ dialog[open] {
 
   .theme-btn {
     width: auto;
-    min-width: 168px;
+    min-width: 152px;
     flex: 0 0 auto;
-    min-height: 44px;
-    padding: 5px 8px;
     scroll-snap-align: start;
-  }
-
-  .theme-btn:hover {
-    transform: none;
-  }
-
-  .side-note,
-  .sidebar-foot {
-    display: none;
   }
 
   .main {
-    max-width: none;
-    padding: 17px 22px 44px;
+    --pad-x: 20px;
+    padding-top: 14px;
+    padding-bottom: 44px;
   }
 
-  .hero {
-    grid-template-columns: minmax(0, 1fr) 245px;
+  .modal-card {
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
   }
 
-  .hero-art {
-    transform: scale(0.86);
-    transform-origin: center right;
+  .modal-media {
+    min-height: 200px;
+    padding: 16px;
   }
 
-  .offer-grid {
-    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+  .modal-media img {
+    width: 148px;
+    height: 148px;
+  }
+
+  .modal-body {
+    padding: 20px 20px 18px;
   }
 }
 
-@media (max-width: 760px) {
-  .topbar {
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 13px;
-  }
-
-  .crumb .hide-sm {
-    display: none;
-  }
-
-  .crumb .sep.hide-sm {
-    display: none;
-  }
-
-  .updated {
-    display: none;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: 0;
-    padding: 28px 24px 21px;
-    border-radius: 25px;
-  }
-
-  .hero::before {
-    left: auto;
-    right: -40px;
-  }
-
-  .hero-copy {
-    max-width: 560px;
-  }
-
-  .hero-title {
-    max-width: 480px;
-    font-size: clamp(34px, 9vw, 44px);
-  }
-
-  .hero-sub {
-    max-width: 480px;
-  }
-
-  .hero-stats {
-    margin-top: 18px;
-  }
-
-  .hero-art {
-    width: 100%;
-    min-height: 186px;
-    margin-top: 5px;
-    transform: scale(0.8);
-    transform-origin: center;
-  }
-
-  .hero-mini {
-    width: 65px;
-    height: 65px;
-  }
-
-  .hero-mini img {
-    width: 56px;
-    height: 56px;
-  }
-
-  .hero-main-img {
-    width: 140px;
-    height: 140px;
-  }
-
-  .hero-orbit {
-    width: 198px;
-    height: 198px;
-  }
-
-  .hero-stamp {
-    right: calc(50% - 153px);
-    bottom: 4px;
-  }
-
-  .essentials {
-    display: flex;
-    gap: 7px;
-    margin: 10px 0 12px;
-    padding-bottom: 4px;
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
-  }
-
-  .essentials::-webkit-scrollbar {
-    display: none;
-  }
-
-  .essential {
-    flex: 0 0 272px;
-    padding: 10px 12px;
-    scroll-snap-align: start;
-  }
-
-  .essential p {
-    font-size: 9px;
-  }
-
-  .browser {
-    padding: 13px;
-    border-radius: 20px;
-  }
-
+@media (max-width: 860px) {
   .toolbar {
     flex-wrap: wrap;
   }
 
   .search-field {
     flex: 1 1 100%;
-    height: 43px;
   }
 
-  .favorites-toggle,
-  .acquired-toggle {
-    flex: 1 1 calc(50% - 5px);
-    height: 40px;
+  .view-switch {
+    flex: 1 1 auto;
+  }
+
+  .view-switch button {
+    flex: 1 1 auto;
   }
 
   .sort-wrap {
-    flex: 1 1 100%;
-    height: 40px;
+    flex: 1 1 auto;
   }
 
-  .filter-row {
-    display: block;
-    padding: 11px 0;
+  .sort-wrap select {
+    max-width: none;
+    flex: 1 1 auto;
   }
 
-  .filter-label {
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0 0 7px 2px;
+  .filters-toggle {
+    display: inline-flex;
   }
 
+  .filters {
+    display: none;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .browser.is-filters-open {
+    position: static;
+  }
+
+  /* On narrow screens the material row stays a single swipeable line
+     so the filter panel stays short. */
   .chip-list--materials {
     flex-wrap: nowrap;
-    padding-bottom: 5px;
     overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 18px), transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 18px), transparent 100%);
+    overflow-y: hidden;
+    row-gap: 0;
+    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 26px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 26px), transparent 100%);
   }
 
-  .chip-list--materials::-webkit-scrollbar {
+  .search-kbd {
     display: none;
   }
 
-  .chip {
-    height: 33px;
-    padding: 0 10px;
-    font-size: 11px;
+  .browser.is-filters-open .filters {
+    display: flex;
+    max-height: min(56vh, 420px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
-  .reset-btn {
-    margin: 3px 0 0 auto;
+  .filter-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 620px) {
+  .view-switch {
+    flex: 1 1 100%;
   }
 
-  .results-head {
-    margin-top: 18px;
-    align-items: flex-end;
-  }
-
-  .results-title {
-    font-size: 18px;
-  }
-
-  .results-badge {
-    padding: 6px 9px 5px;
+  .sort-wrap {
+    flex: 1 1 auto;
   }
 
   .offer-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
     gap: 10px;
   }
 
   .card-media {
-    height: 134px;
+    height: 116px;
   }
 
   .card-media img {
-    width: 94px;
-    height: 94px;
+    width: 78px;
+    height: 78px;
   }
 
-  .footer {
-    display: block;
+  .card-title {
+    min-height: 36px;
+    font-size: 13px;
   }
 
-  .footer-links {
-    justify-content: flex-start;
-    margin-top: 12px;
+  .cost-amount {
+    font-size: 14px;
   }
 
-  .modal-card {
+  .results-bar {
+    margin: 12px 0 8px;
+  }
+
+  .modal-stats {
     grid-template-columns: 1fr;
-    max-height: calc(100vh - 32px);
-    overflow-y: auto;
-  }
-
-  .modal-media {
-    min-height: 218px;
-    padding: 20px;
-  }
-
-  .modal-media img {
-    width: 165px;
-    height: 165px;
-  }
-
-  .modal-media::before {
-    width: 178px;
-    height: 178px;
-  }
-
-  .modal-body {
-    padding: 23px 22px 22px;
-  }
-
-  .modal-title {
-    font-size: 23px;
   }
 }
 
-@media (max-width: 500px) {
-  .sidebar {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-
-  .theme-nav {
-    margin-right: -16px;
-    margin-left: -16px;
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-
-  .main {
-    padding: 13px 13px 36px;
-  }
-
-  .crumb {
-    font-size: 9px;
-  }
-
-  .crumb .crumb-pill {
-    display: none;
-  }
-
-  .lang-switch button {
-    min-width: 33px;
-    padding: 0 7px;
-  }
-
-  .lang-switch .lang-zh-btn {
-    min-width: 40px;
-  }
-
-  .hero {
-    padding: 25px 19px 17px;
-  }
-
-  .hero-title {
-    font-size: 35px;
-  }
-
-  .lang-zh .hero-title {
-    font-size: 32px;
-  }
-
-  .hero-sub {
-    font-size: 11.5px;
-  }
-
-  .hero-stat {
-    min-width: 78px;
-    padding: 8px 11px 7px;
-  }
-
-  .hero-stat strong {
-    font-size: 15px;
-  }
-
-  .hero-art {
-    min-height: 170px;
-    transform: scale(0.72);
-  }
-
-  .hero-stamp {
-    right: calc(50% - 139px);
-  }
-
+@media (max-width: 420px) {
   .offer-grid {
     grid-template-columns: 1fr;
   }
 
   .card-media {
-    height: 160px;
+    height: 150px;
   }
 
   .card-media img {
-    width: 112px;
-    height: 112px;
-  }
-
-  .card-title {
-    min-height: 0;
-    font-size: 14.5px;
-  }
-
-  .results-kicker {
-    display: none;
-  }
-
-  .results-meta {
-    font-size: 9px;
-  }
-
-  .modal-stats {
-    grid-template-columns: 1fr;
+    width: 104px;
+    height: 104px;
   }
 }
 
@@ -3105,184 +1781,149 @@ dialog[open] {
     transition-duration: 0.01ms !important;
   }
 }
-
-
-  
-  
-  
-  
   </style>
 </head>
 <body class="lang-zh">
 
-  <svg class="svg-sprite" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
     <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 2.5c1.1 5.9 3.6 8.4 9.5 9.5-5.9 1.1-8.4 3.6-9.5 9.5-1.1-5.9-3.6-8.4-9.5-9.5 5.9-1.1 8.4-3.6 9.5-9.5Z" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m19.5 19.5-4.2-4.2"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
-    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 6.5h16v3.2a2.3 2.3 0 0 0 0 4.6v3.2H4v-3.2a2.3 2.3 0 0 0 0-4.6V6.5Z"/><path d="M15.5 6.5v11" stroke-dasharray="2 2.4"/></symbol>
     <symbol id="i-gem" viewBox="0 0 24 24"><path d="m12 3 7.5 5.2L12 21 4.5 8.2 12 3Z"/><path d="m4.5 8.2 7.5 3 7.5-3M12 11.2V21M8.3 4.9 12 11.2l3.7-6.3"/></symbol>
     <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></symbol>
     <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.5"/><path d="M12 7.5v9M9.6 9.4h4a1.7 1.7 0 0 1 0 3.4h-3.2a1.7 1.7 0 0 0 0 3.4h4"/></symbol>
-    <symbol id="i-house" viewBox="0 0 24 24"><path d="m3.5 10.5 8.5-7 8.5 7"/><path d="M5.8 9.2v10.3h12.4V9.2M10 19.5v-5.3h4v5.3"/></symbol>
-    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8.5" cy="9" r="4.2"/><path d="m11.6 12.1 8.4 8.4M16 16.5l2.1-2.1M13.5 14l2.1-2.1"/></symbol>
-    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3.5h8l4 4v13H6v-17Z"/><path d="M14 3.5v4h4M9 11h6M9 14.5h6M9 18h4"/></symbol>
-    <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.8 14.2c.8 1.4 1.9 2.1 3.2 2.1s2.4-.7 3.2-2.1"/><path d="M9.3 9.6h.01M14.7 9.6h.01" stroke-width="2.6"/></symbol>
-    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m10 8.5 5.2 3.5-5.2 3.5v-7Z"/></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.7 12h16.6M12 3.5c2.1 2.3 3.2 5.1 3.2 8.5S14.1 18.2 12 20.5c-2.1-2.3-3.2-5.1-3.2-8.5S9.9 5.8 12 3.5Z"/></symbol>
-    <symbol id="i-sort" viewBox="0 0 24 24"><path d="M8 4v16M4.8 16.8 8 20l3.2-3.2M16 20V4M12.8 7.2 16 4l3.2 3.2"/></symbol>
     <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.2" height="6.2" rx="1.3"/><rect x="13.8" y="4" width="6.2" height="6.2" rx="1.3"/><rect x="4" y="13.8" width="6.2" height="6.2" rx="1.3"/><rect x="13.8" y="13.8" width="6.2" height="6.2" rx="1.3"/></symbol>
-    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 10.6v5.1M12 7.7h.01" stroke-width="2.4"/></symbol>
-    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M4 4h7.2L20 12.8 12.8 20 4 11.2V4Z"/><circle cx="8.3" cy="8.3" r="1.3"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24"><path d="M8 4v16M4.8 16.8 8 20l3.2-3.2M16 20V4M12.8 7.2 16 4l3.2 3.2"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6.2h16l-6.1 7.1v5.2L10.1 16v-2.7L4 6.2Z"/></symbol>
     <symbol id="i-reset" viewBox="0 0 24 24"><path d="M5 8.5A8 8 0 1 1 4.2 14"/><path d="M5 4v4.5h4.5"/></symbol>
     <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.1S3.7 15.2 3.7 9.3a4.2 4.2 0 0 1 7.5-2.5L12 7.7l.8-.9a4.2 4.2 0 0 1 7.5 2.5c0 5.9-8.3 10.8-8.3 10.8Z"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.4 4.3 4.3L19.2 6.8"/></symbol>
     <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8.2h13l-1.1 12H6.6l-1.1-12Z"/><path d="M9 8.2V6.8a3 3 0 0 1 6 0v1.4"/><path d="M9.2 12.3c.4 1.4 1.4 2.2 2.8 2.2s2.4-.8 2.8-2.2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m10 8.5 5.2 3.5-5.2 3.5v-7Z"/></symbol>
   </svg>
 
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="#" aria-label="Fashion Order Machine home">
+      <a class="brand" href="#" aria-label="Fashion Order Machine">
         <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-bag"></use></svg></span>
         <span class="brand-copy">
           <span class="brand-kicker">Heartopia</span>
-          <span class="brand-name">Fashion Order Machine</span>
-          <span class="brand-sub" data-i18n="brandSub">September return · 2026</span>
+          <span class="brand-name" data-i18n="brandName">時尚訂購機</span>
+          <span class="brand-sub" data-i18n="brandSub">2026 九月回歸</span>
         </span>
       </a>
 
       <div class="side-heading">
-        <span data-i18n="themes">Themes</span>
+        <span data-i18n="themes">主題</span>
         <span id="themeTotalLabel">8</span>
       </div>
 
       <nav class="theme-nav" id="themeNav" aria-label="Order machine themes">
         <button class="theme-btn theme-btn--all" type="button" data-theme="all" aria-pressed="true">
           <span class="theme-thumb"><svg class="icon" aria-hidden="true"><use href="#i-grid"></use></svg></span>
-          <span class="theme-label"><span class="theme-name" data-i18n="allOffers">All offers</span></span>
+          <span class="theme-label"><span class="theme-name" data-i18n="allOffers">全部商品</span></span>
           <span class="theme-count" id="allOffersCount">829</span>
         </button>
       </nav>
 
-      <div class="side-note">
-        <p class="side-note-head"><svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg><span data-i18n="sideNoteTitle">Plan your order</span></p>
-        <p data-i18n="sideNoteBody">Every order carries a ticket cost. Filter by reward or currency to plan your requests.</p>
-      </div>
-
-      <div class="sidebar-foot">
-        <span data-i18n="sidebarSource">Data from Build Heartopia · updated 4 Oct 2026.</span><br>
-        <a href="https://build-heartopia.com/news/order-machine-september" target="_blank" rel="noopener noreferrer" data-i18n="viewSource">View the original source</a>
+      <div class="sidebar-links">
+        <a href="https://build-heartopia.com/news/order-machine-september" target="_blank" rel="noopener noreferrer" data-i18n="sourceLink">資料來源：Build Heartopia</a>
+        <a href="https://build-heartopia.com/collections" target="_blank" rel="noopener noreferrer" data-i18n="collectionsLink">瀏覽系列</a>
       </div>
     </aside>
 
     <main class="main">
-      <header class="topbar">
-        <div class="crumb">
-          <span data-i18n="crumbHeartopia">Heartopia</span>
-          <span class="sep">/</span>
-          <span class="hide-sm" data-i18n="crumbMachine">Order machine</span>
-          <span class="sep hide-sm">/</span>
-          <span class="current" data-i18n="crumbCollection">September collection</span>
-          <span class="crumb-pill" data-i18n="crumbLive">Returning now</span>
-        </div>
-        <div class="top-actions">
-          <span class="updated" data-i18n="updated">Updated 4 Oct 2026</span>
-          <div class="lang-switch" role="group" aria-label="Language">
-            <button type="button" class="lang-en-btn" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" class="lang-zh-btn" data-lang="zh" aria-pressed="false">繁體</button>
-          </div>
-        </div>
-      </header>
+      <h1 class="sr-only" data-i18n="pageTitle">時尚訂購機 · 九月系列</h1>
 
-      <section class="hero" id="hero" aria-labelledby="heroTitle">
-        <div class="hero-copy">
-          <span class="hero-eyebrow" id="heroEyebrow">September 2026 · Returning collection</span>
-          <h1 class="hero-title" id="heroTitle">Eight worlds.<br><span class="soft">One order machine.</span></h1>
-          <p class="hero-sub" id="heroSub">Browse every returning fashion offer — compare order rewards, base prices and the Order Tickets each request needs.</p>
-          <div class="hero-stats" id="heroStats"></div>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="hero-orbit"></div>
-          <img class="hero-main-img" id="heroMain" alt="" width="176" height="176">
-          <span class="hero-mini hero-mini--a"><img id="heroMiniA" alt="" width="176" height="176"></span>
-          <span class="hero-mini hero-mini--b"><img id="heroMiniB" alt="" width="176" height="176"></span>
-          <span class="hero-stamp"><strong id="heroStampCount">829</strong><span id="heroStampLabel">offers</span></span>
-        </div>
-      </section>
-
-      <section class="browser" aria-label="Search and filter offers">
+      <section class="browser" id="offerBrowser" aria-label="Search and filter offers">
         <div class="toolbar">
           <label class="search-field" id="searchField" for="searchInput">
             <svg class="icon search-icon" aria-hidden="true"><use href="#i-search"></use></svg>
-            <span class="sr-only" data-i18n="searchLabel">Search offers</span>
-            <input id="searchInput" type="search" autocomplete="off" spellcheck="false" placeholder="搜尋商品、獎勵、材料、價格…" data-i18n-placeholder="searchPlaceholder">
+            <span class="sr-only" data-i18n="searchLabel">搜尋商品</span>
+            <input id="searchInput" type="search" autocomplete="off" spellcheck="false" placeholder="搜尋商品、獎勵、材料…" data-i18n-placeholder="searchPlaceholder">
             <kbd class="search-kbd" aria-hidden="true">/</kbd>
             <button class="search-clear" id="searchClear" type="button" aria-label="清除搜尋" data-i18n-aria="clearSearch">
               <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
             </button>
           </label>
-          <button class="favorites-toggle" id="favoritesToggle" type="button" aria-pressed="false">
-            <svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>
-            <span data-i18n="favorites">收藏</span>
-            <span class="favorites-count" id="favoritesCount">0</span>
-          </button>
-          <button class="acquired-toggle" id="acquiredToggle" type="button" aria-pressed="false">
-            <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
-            <span data-i18n="acquired">已獲取</span>
-            <span class="acquired-count" id="acquiredCount">0</span>
-          </button>
+
+          <div class="view-switch" id="viewSwitch" role="group" data-i18n-aria="viewAria">
+            <button type="button" data-view="all" aria-pressed="true"><span data-i18n="viewAll">全部</span></button>
+            <button type="button" data-view="favorites" aria-pressed="false">
+              <svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>
+              <span data-i18n="favorites">收藏</span>
+              <span class="view-count" id="favoritesCount">0</span>
+            </button>
+            <button type="button" data-view="acquired" aria-pressed="false">
+              <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+              <span data-i18n="acquired">已獲取</span>
+              <span class="view-count" id="acquiredCount">0</span>
+            </button>
+          </div>
+
           <div class="sort-wrap">
             <svg class="icon" aria-hidden="true"><use href="#i-sort"></use></svg>
-            <label class="sr-only" for="sortSelect" data-i18n="sortLabel">Sort offers</label>
+            <label class="sr-only" for="sortSelect" data-i18n="sortLabel">排序商品</label>
             <select id="sortSelect">
-              <option value="featured" data-i18n="sortFeatured">Featured order</option>
-              <option value="price-asc" data-i18n="sortPriceAsc">Price: low to high</option>
-              <option value="price-desc" data-i18n="sortPriceDesc">Price: high to low</option>
-              <option value="tickets-asc" data-i18n="sortTicketsAsc">Tickets: low to high</option>
-              <option value="name-asc" data-i18n="sortNameAsc">Name A–Z</option>
+              <option value="featured" data-i18n="sortFeatured">精選順序</option>
+              <option value="price-asc" data-i18n="sortPriceAsc">價格：低至高</option>
+              <option value="price-desc" data-i18n="sortPriceDesc">價格：高至低</option>
+              <option value="tickets-asc" data-i18n="sortTicketsAsc">訂購券：少至多</option>
+              <option value="name-asc" data-i18n="sortNameAsc">名稱 A–Z</option>
             </select>
           </div>
+
+          <div class="lang-switch" role="group" aria-label="語言">
+            <button type="button" class="lang-en-btn" data-lang="en" aria-pressed="false">EN</button>
+            <button type="button" class="lang-zh-btn" data-lang="zh" aria-pressed="true">繁體</button>
+          </div>
+
+          <button class="filters-toggle" id="filtersToggle" type="button"
+            aria-expanded="false" aria-controls="filterPanel"
+            data-i18n-aria="filtersToggleAria" data-i18n-title="filtersToggleAria">
+            <svg class="icon" aria-hidden="true"><use href="#i-filter"></use></svg>
+            <span data-i18n="filtersToggle">篩選</span>
+            <span class="filters-count" id="filtersCount" hidden>0</span>
+          </button>
         </div>
 
-        <div class="filters">
+        <div class="filters" id="filterPanel">
           <div class="filter-row">
-            <span class="filter-label reward-label" data-i18n="filterReward">Reward</span>
+            <span class="filter-label" data-i18n="filterReward">獎勵</span>
             <div class="chip-list" id="rewardChips" role="group" aria-label="Filter by order reward"></div>
           </div>
           <div class="filter-row">
-            <span class="filter-label" data-i18n="filterPrice">Price</span>
+            <span class="filter-label" data-i18n="filterPrice">價格</span>
             <div class="chip-list" id="priceChips" role="group" aria-label="Filter by price type"></div>
-            <button class="reset-btn" id="resetFilters" type="button" hidden>
-              <svg class="icon" aria-hidden="true"><use href="#i-reset"></use></svg>
-              <span data-i18n="resetAll">Reset</span>
-            </button>
           </div>
-          <div class="filter-row">
-            <span class="filter-label" data-i18n="filterMaterial">Materials</span>
+          <div class="filter-row filter-row--materials">
+            <span class="filter-label" data-i18n="filterMaterial">材料</span>
             <div class="chip-list chip-list--materials" id="materialChips" role="group" aria-label="Filter by required material"></div>
           </div>
         </div>
       </section>
 
-      <div class="results-head">
-        <div class="results-copy">
-          <p class="results-kicker" data-i18n="catalogueKicker">Catalogue</p>
-          <h2 class="results-title" id="resultsTitle">All offers</h2>
-          <p class="results-meta" id="resultsMeta" aria-live="polite"></p>
-        </div>
-        <span class="results-badge"><strong id="resultCount">829</strong><span id="resultCountLabel">offers</span></span>
+      <div class="results-bar">
+        <span class="results-count" id="resultsCount"></span>
+        <span class="showing-label" id="showingLabel"></span>
+        <button class="reset-btn" id="resetFilters" type="button" hidden>
+          <svg class="icon" aria-hidden="true"><use href="#i-reset"></use></svg>
+          <span data-i18n="resetAll">重設</span>
+        </button>
       </div>
+      <p class="sr-only" id="resultsMeta" aria-live="polite"></p>
 
       <section class="offer-grid" id="offerGrid" aria-label="Fashion offers"></section>
 
       <div class="empty-state" id="emptyState" hidden>
         <span class="empty-orbit"><svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg></span>
-        <h3 data-i18n="emptyTitle">No offers found</h3>
-        <p data-i18n="emptyBody">Try another search, or clear the reward and price filters to see the full collection.</p>
+        <h3 data-i18n="emptyTitle">找不到符合條件的商品</h3>
+        <p data-i18n="emptyBody">試試其他關鍵字，或清除獎勵與價格篩選，查看完整系列。</p>
         <button class="empty-clear" id="emptyClear" type="button">
           <svg class="icon" aria-hidden="true"><use href="#i-reset"></use></svg>
-          <span data-i18n="clearFilters">Clear filters</span>
+          <span data-i18n="clearFilters">清除篩選</span>
         </button>
       </div>
 
@@ -3291,60 +1932,40 @@ dialog[open] {
           <span class="loader-spinner" aria-hidden="true"></span>
           <span id="loadMoreText">向下捲動載入更多</span>
         </div>
-        <span class="showing-label" id="showingLabel"></span>
       </div>
-
-      <footer class="footer">
-        <div class="footer-copy">
-          <p class="footer-title" data-i18n="footerTitle">A fan-made order guide</p>
-          <p data-i18n="footerBody">Prices are base values before discounts and may change in game. Order availability, delivery requirements and final prices are set by the machine.</p>
-          <p data-i18n="footerNames">商品名稱為繁體中文翻譯，僅供參考。本頁與 XD 或 Heartopia 無官方關聯。</p>
-        </div>
-        <div class="footer-links">
-          <a href="https://build-heartopia.com/news/order-machine-september" target="_blank" rel="noopener noreferrer" data-i18n="sourceLink">Source: Build Heartopia</a>
-          <a href="https://build-heartopia.com/collections" target="_blank" rel="noopener noreferrer" data-i18n="collectionsLink">Browse collections</a>
-          <a href="https://build-heartopia.com/feedback" target="_blank" rel="noopener noreferrer" data-i18n="reportLink">Report an issue</a>
-        </div>
-      </footer>
     </main>
   </div>
 
   <dialog id="detailDialog" aria-labelledby="modalTitle">
     <div class="modal-card">
-      <button class="modal-close" id="modalClose" type="button" aria-label="Close details" data-i18n-aria="closeDetails">
+      <button class="modal-close" id="modalClose" type="button" aria-label="關閉詳細資訊" data-i18n-aria="closeDetails">
         <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
       </button>
       <div class="modal-media" id="modalMedia"></div>
       <div class="modal-body">
-        <div class="modal-eyebrow"><span class="theme-dot" id="modalDot"></span><span id="modalTheme"></span></div>
-        <span class="modal-reward" id="modalReward"></span>
+        <p class="modal-eyebrow"><span class="theme-dot" id="modalDot"></span><span id="modalTheme"></span></p>
         <h2 class="modal-title" id="modalTitle"></h2>
-        <p class="modal-theme" id="modalThemeLine"></p>
         <div class="modal-stats">
           <div class="modal-stat">
-            <span data-i18n="modalRewardLabel">Order reward</span>
-            <strong id="modalRewardValue"></strong>
-          </div>
-          <div class="modal-stat">
-            <span data-i18n="modalPriceLabel">Base price</span>
+            <span data-i18n="modalPriceLabel">基礎價格</span>
             <strong id="modalPriceValue"></strong>
           </div>
           <div class="modal-stat">
-            <span data-i18n="modalTicketsLabel">Order Tickets</span>
+            <span data-i18n="modalTicketsLabel">訂購券</span>
             <strong id="modalTicketsValue"></strong>
           </div>
-          <div class="modal-stat">
-            <span data-i18n="modalCurrencyLabel">Price type</span>
-            <strong id="modalCurrencyValue"></strong>
-          </div>
         </div>
-        <div class="modal-requirement">
-          <svg class="icon" aria-hidden="true"><use href="#i-ticket"></use></svg>
-          <p id="modalRequirement"></p>
+        <p class="modal-row">
+          <span class="modal-row-label" data-i18n="modalRewardLabel">訂單獎勵</span>
+          <span class="modal-row-value" id="modalRewardValue"></span>
+        </p>
+        <div class="modal-materials" id="modalMaterials" hidden>
+          <p class="modal-section-title" data-i18n="modalMaterials">所需材料</p>
+          <div class="modal-material-list" id="modalMaterialList"></div>
         </div>
-        <p class="modal-note" data-i18n="modalNote">Base price before discounts. Check the machine for the final price and delivery requirements.</p>
+        <p class="modal-note" data-i18n="modalNote">價格為折扣前基礎數值，最終價格與交付條件以遊戲內訂購機為準。</p>
         <a class="modal-link" id="modalLink" href="#" target="_blank" rel="noopener noreferrer">
-          <span data-i18n="modalLink">View item on Build Heartopia</span>
+          <span data-i18n="modalLink">在 Build Heartopia 查看商品</span>
           <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
         </a>
       </div>
@@ -3372,14 +1993,6 @@ dialog[open] {
   const REWARD_ORDER = ['Item', 'Blueprint', 'Building unlock', 'Unlock', 'Action', 'Face paint'];
   const CURRENCY_ORDER = ['Heart Diamond', 'Wishing Star', 'Gold'];
   const CURRENCY_RANK = Object.fromEntries(CURRENCY_ORDER.map((currency, index) => [currency, index]));
-  const REWARD_CLASS = {
-    Item: 'reward-item',
-    Blueprint: 'reward-blueprint',
-    'Building unlock': 'reward-building',
-    Unlock: 'reward-unlock',
-    Action: 'reward-action',
-    'Face paint': 'reward-face'
-  };
   const CURRENCY_META = {
     'Heart Diamond': { key: 'heart', icon: 'i-gem', color: '#c1699e', bg: '#fbeaf2' },
     'Wishing Star': { key: 'star', icon: 'i-star', color: '#b07c31', bg: '#fbf1dc' },
@@ -3409,21 +2022,6 @@ dialog[open] {
       brandSub: 'September return · 2026',
       themes: 'Themes',
       allOffers: 'All offers',
-      sideNoteTitle: 'Plan your order',
-      sideNoteBody: 'Every order carries a ticket cost. Filter by reward or currency to plan your requests.',
-      sidebarSource: 'Data from Build Heartopia · updated 4 Oct 2026.',
-      viewSource: 'View the original source',
-      crumbHeartopia: 'Heartopia',
-      crumbMachine: 'Order machine',
-      crumbCollection: 'September collection',
-      crumbLive: 'Returning now',
-      updated: 'Updated 4 Oct 2026',
-      essentialOneTitle: 'Tickets + currency',
-      essentialOneBody: 'Every order needs at least one Order Ticket, plus the listed price.',
-      essentialTwoTitle: 'Prices before discounts',
-      essentialTwoBody: 'Base prices from game data. The machine may show a lower final price.',
-      essentialThreeTitle: 'Know the reward',
-      essentialThreeBody: 'Blueprints unlock recipes; building unlocks open a build piece.',
       searchLabel: 'Search offers',
       searchPlaceholder: 'Search items, rewards, materials, prices…',
       clearSearch: 'Clear search',
@@ -3437,69 +2035,47 @@ dialog[open] {
       filterPrice: 'Price',
       filterMaterial: 'Materials',
       materialAll: 'All materials',
-      materialsRequired: 'Materials',
       resetAll: 'Reset',
-      catalogueKicker: 'Catalogue',
+      filtersToggle: 'Filters',
+      filtersToggleAria: 'Show or hide filters',
       emptyTitle: 'No offers found',
       emptyBody: 'Try another search, or clear the reward and price filters to see the full collection.',
       clearFilters: 'Clear filters',
       favorites: 'Favorites',
-      favoritesTitle: 'Saved favorites',
       favoritesMeta: '{count} saved',
       favoritesEmptyTitle: 'No favorites yet',
       favoritesEmptyBody: 'Tap the heart on a card to keep an offer here. Your favorites are stored in this browser.',
       browseAll: 'Browse all offers',
       favoriteAdd: 'Add to favorites',
       favoriteRemove: 'Remove from favorites',
-      favoritesAria: 'Only show favorite offers',
-      favoriteToggleTitle: 'Show favorites only',
       acquired: 'Acquired',
-      acquiredTitle: 'Acquired items',
       acquiredMeta: '{count} acquired',
-      favoritesAndAcquiredTitle: 'Favorites + acquired',
       acquiredEmptyTitle: 'No acquired items yet',
       acquiredEmptyBody: 'Tap the checkmark on a card to record what you already have. This is stored in your browser.',
       acquiredAdd: 'Mark as acquired',
       acquiredRemove: 'Remove from acquired',
-      acquiredAria: 'Only show acquired items',
-      acquiredToggleTitle: 'Show acquired items only',
-      footerTitle: 'A fan-made order guide',
-      footerBody: 'Prices are base values before discounts and may change in game. Order availability, delivery requirements and final prices are set by the machine.',
-      footerNames: 'Item names are fan translations for reference. Not affiliated with XD or Heartopia.',
       sourceLink: 'Source: Build Heartopia',
       collectionsLink: 'Browse collections',
-      reportLink: 'Report an issue',
       closeDetails: 'Close details',
+      brandName: 'Fashion Order Machine',
+      viewAll: 'All',
+      viewAria: 'Filter by collection status',
+      modalMaterials: 'Required materials',
       modalRewardLabel: 'Order reward',
       modalPriceLabel: 'Base price',
       modalTicketsLabel: 'Order Tickets',
-      modalCurrencyLabel: 'Price type',
       modalNote: 'Base price before discounts. Check the machine for the final price and delivery requirements.',
       modalLink: 'View item on Build Heartopia',
       rewardAll: 'All rewards',
       priceAll: 'All prices',
       all: 'All',
       across: 'across',
-      selectedTheme: 'Selected theme',
-      heroAllEyebrow: 'September 2026 · Returning collection',
-      heroAllTitle: 'Eight worlds.<br><span class="soft">One order machine.</span>',
-      heroAllSub: 'Browse every returning fashion offer — compare order rewards, base prices and the Order Tickets each request needs.',
-      heroThemeTail: 'returns.',
-      heroThemeSub: '{tagline}. Browse all {count} with base prices and ticket requirements.',
-      heroStatsOffers: 'offers',
-      heroStatsThemes: 'themes',
-      heroStatsRewards: 'reward types',
-      heroStatsTickets: 'Order Tickets',
-      heroStamp: 'offers',
-      resultAllTitle: 'All returning offers',
-      resultSearchTitle: 'Search results',
       searchAria: 'Search offers',
       ariaThemes: 'Choose an order machine theme',
       ariaRewardFilter: 'Filter by order reward',
       ariaPriceFilter: 'Filter by price type',
       ariaMaterialFilter: 'Filter by required material',
       ariaOffers: 'Fashion order offers',
-      offerLabel: 'offers',
       themeSingular: 'theme',
       themePlural: 'themes',
       rewardTypeSingular: 'reward type',
@@ -3508,6 +2084,7 @@ dialog[open] {
       priceTypePlural: 'price types',
       offersSingular: 'offer',
       offersPlural: 'offers',
+      showingCount: 'Showing {shown}',
       rewards: {
         Item: 'Item',
         Blueprint: 'Blueprint',
@@ -3522,17 +2099,12 @@ dialog[open] {
         Gold: 'Gold'
       },
       showing: 'Showing {shown} of {total}',
-      allShown: 'All {total} shown',
-      showMore: 'Show {n} more offers',
       loadingMore: 'Scroll to load more',
       resultsFor: 'Results for “{query}”',
       matches: '{count} matching your search',
       resultMetaTheme: '{count} · {rewards} · {prices}',
       resultMetaFiltered: '{count} matching your filters',
-      modalThemeLine: '{theme} · {count}',
-      modalRequirement: 'Order requirement: {tickets} plus {price}.',
       cardAria: 'Open details for {name}. {reward}. {price}. {tickets}.',
-      heroEyebrowCount: '{count} in this theme',
       langLabel: 'Language'
     },
     zh: {
@@ -3540,21 +2112,6 @@ dialog[open] {
       brandSub: '2026 九月回歸',
       themes: '主題',
       allOffers: '全部商品',
-      sideNoteTitle: '規劃你的訂單',
-      sideNoteBody: '每筆訂單都需要訂購券。用獎勵或價格類型篩選，快速整理想要的商品。',
-      sidebarSource: '資料來源：Build Heartopia · 2026 年 10 月 4 日更新。',
-      viewSource: '查看原始資料',
-      crumbHeartopia: 'Heartopia',
-      crumbMachine: '訂購機',
-      crumbCollection: '九月系列',
-      crumbLive: '回歸中',
-      updated: '2026 年 10 月 4 日更新',
-      essentialOneTitle: '訂購券＋貨幣',
-      essentialOneBody: '每筆訂單至少需要 1 張訂購券，並支付標示價格。',
-      essentialTwoTitle: '折扣前價格',
-      essentialTwoBody: '價格來自遊戲資料，訂購機可能顯示更低的實際價格。',
-      essentialThreeTitle: '看清獎勵類型',
-      essentialThreeBody: '圖紙解鎖配方；建築解鎖開放該建築部件。',
       searchLabel: '搜尋商品',
       searchPlaceholder: '搜尋商品、獎勵、材料、價格…',
       clearSearch: '清除搜尋',
@@ -3568,69 +2125,47 @@ dialog[open] {
       filterPrice: '價格',
       filterMaterial: '材料',
       materialAll: '全部材料',
-      materialsRequired: '所需材料',
       resetAll: '重設',
-      catalogueKicker: '商品目錄',
+      filtersToggle: '篩選',
+      filtersToggleAria: '顯示或隱藏篩選條件',
       emptyTitle: '找不到符合條件的商品',
       emptyBody: '試試其他關鍵字，或清除獎勵與價格篩選，查看完整系列。',
       clearFilters: '清除篩選',
       favorites: '收藏',
-      favoritesTitle: '收藏商品',
       favoritesMeta: '已收藏 {count}',
       favoritesEmptyTitle: '尚無收藏商品',
       favoritesEmptyBody: '點擊卡片右上角的愛心，把喜歡的商品收進這裡。收藏會保存在這個瀏覽器中。',
       browseAll: '瀏覽全部商品',
       favoriteAdd: '加入收藏',
       favoriteRemove: '取消收藏',
-      favoritesAria: '只顯示收藏商品',
-      favoriteToggleTitle: '只顯示收藏商品',
       acquired: '已獲取',
-      acquiredTitle: '已獲取商品',
       acquiredMeta: '已獲取 {count}',
-      favoritesAndAcquiredTitle: '收藏＋已獲取',
       acquiredEmptyTitle: '尚無已獲取商品',
       acquiredEmptyBody: '點擊卡片右上角的勾選圖標，記錄你已經獲取的商品。紀錄會保存在這個瀏覽器中。',
       acquiredAdd: '標記為已獲取',
       acquiredRemove: '取消已獲取',
-      acquiredAria: '只顯示已獲取商品',
-      acquiredToggleTitle: '只顯示已獲取商品',
-      footerTitle: '非官方訂購指南',
-      footerBody: '價格為折扣前基礎數值，遊戲內可能調整。可訂購商品、交付條件與最終價格以訂購機為準。',
-      footerNames: '商品名稱為繁體中文翻譯，僅供參考。本頁與 XD 或 Heartopia 無官方關聯。',
       sourceLink: '資料來源：Build Heartopia',
       collectionsLink: '瀏覽系列',
-      reportLink: '回報問題',
       closeDetails: '關閉詳細資訊',
       modalRewardLabel: '訂單獎勵',
       modalPriceLabel: '基礎價格',
       modalTicketsLabel: '訂購券',
-      modalCurrencyLabel: '價格類型',
       modalNote: '價格為折扣前基礎數值，最終價格與交付條件請以訂購機為準。',
       modalLink: '在 Build Heartopia 查看商品',
+      brandName: '時尚訂購機',
+      viewAll: '全部',
+      viewAria: '依收藏狀態篩選',
+      modalMaterials: '所需材料',
       rewardAll: '全部獎勵',
       priceAll: '全部價格',
       all: '全部',
       across: '分佈於',
-      selectedTheme: '已選主題',
-      heroAllEyebrow: '2026 九月 · 回歸系列',
-      heroAllTitle: '八個主題，<br><span class="soft">同一台訂購機。</span>',
-      heroAllSub: '瀏覽所有回歸時尚商品，比較訂單獎勵、基礎價格與每筆訂單需要的訂購券。',
-      heroThemeTail: '回歸登場。',
-      heroThemeSub: '{tagline}。共 {count}，附基礎價格與訂購券需求。',
-      heroStatsOffers: '商品',
-      heroStatsThemes: '主題',
-      heroStatsRewards: '種獎勵',
-      heroStatsTickets: '訂購券',
-      heroStamp: '件',
-      resultAllTitle: '所有回歸商品',
-      resultSearchTitle: '搜尋結果',
       searchAria: '搜尋商品',
       ariaThemes: '選擇訂購機主題',
       ariaRewardFilter: '依訂單獎勵篩選',
       ariaPriceFilter: '依價格類型篩選',
       ariaMaterialFilter: '依所需材料篩選',
       ariaOffers: '時尚訂購商品',
-      offerLabel: '件',
       themeSingular: '個主題',
       themePlural: '個主題',
       rewardTypeSingular: '種獎勵',
@@ -3639,6 +2174,7 @@ dialog[open] {
       priceTypePlural: '種價格',
       offersSingular: '件商品',
       offersPlural: '件商品',
+      showingCount: '已顯示 {shown}',
       rewards: {
         Item: '物品',
         Blueprint: '圖紙',
@@ -3653,17 +2189,12 @@ dialog[open] {
         Gold: '金幣'
       },
       showing: '顯示 {shown} / {total}',
-      allShown: '已顯示全部 {total}',
-      showMore: '再顯示 {n} 件',
       loadingMore: '向下捲動載入更多',
       resultsFor: '「{query}」的搜尋結果',
       matches: '找到 {count} 件符合商品',
       resultMetaTheme: '{count} · {rewards} · {prices}',
       resultMetaFiltered: '{count} 件符合目前篩選',
-      modalThemeLine: '{theme} · {count}',
-      modalRequirement: '訂購需求：{tickets}＋{price}。',
       cardAria: '開啟 {name} 的詳細資訊。{reward}。{price}。{tickets}。',
-      heroEyebrowCount: '此主題共 {count}',
       langLabel: '語言'
     }
   };
@@ -3678,31 +2209,24 @@ dialog[open] {
   const themeNav = $('#themeNav');
   const allOffersCount = $('#allOffersCount');
   const themeTotalLabel = $('#themeTotalLabel');
-  const heroEyebrow = $('#heroEyebrow');
-  const heroTitle = $('#heroTitle');
-  const heroSub = $('#heroSub');
-  const heroStats = $('#heroStats');
-  const heroMain = $('#heroMain');
-  const heroMiniA = $('#heroMiniA');
-  const heroMiniB = $('#heroMiniB');
-  const heroStampCount = $('#heroStampCount');
-  const heroStampLabel = $('#heroStampLabel');
+  const browser = $('#offerBrowser');
   const searchField = $('#searchField');
   const searchInput = $('#searchInput');
   const searchClear = $('#searchClear');
-  const favoritesToggle = $('#favoritesToggle');
+  const viewSwitch = $('#viewSwitch');
+  const viewButtons = $$('.view-switch button');
   const favoritesCount = $('#favoritesCount');
-  const acquiredToggle = $('#acquiredToggle');
   const acquiredCount = $('#acquiredCount');
   const sortSelect = $('#sortSelect');
+  const filtersToggle = $('#filtersToggle');
+  const filtersPanel = $('#filterPanel');
+  const filtersCount = $('#filtersCount');
   const rewardChips = $('#rewardChips');
   const priceChips = $('#priceChips');
   const materialChips = $('#materialChips');
   const resetFilters = $('#resetFilters');
-  const resultsTitle = $('#resultsTitle');
+  const resultsCount = $('#resultsCount');
   const resultsMeta = $('#resultsMeta');
-  const resultCount = $('#resultCount');
-  const resultCountLabel = $('#resultCountLabel');
   const offerGrid = $('#offerGrid');
   const emptyState = $('#emptyState');
   const emptyTitle = $('#emptyState h3');
@@ -3717,14 +2241,12 @@ dialog[open] {
   const modalMedia = $('#modalMedia');
   const modalDot = $('#modalDot');
   const modalTheme = $('#modalTheme');
-  const modalReward = $('#modalReward');
   const modalTitle = $('#modalTitle');
-  const modalThemeLine = $('#modalThemeLine');
   const modalRewardValue = $('#modalRewardValue');
   const modalPriceValue = $('#modalPriceValue');
   const modalTicketsValue = $('#modalTicketsValue');
-  const modalCurrencyValue = $('#modalCurrencyValue');
-  const modalRequirement = $('#modalRequirement');
+  const modalMaterials = $('#modalMaterials');
+  const modalMaterialList = $('#modalMaterialList');
   const modalLink = $('#modalLink');
 
   /* -------------------------------------------------------
@@ -3824,7 +2346,6 @@ dialog[open] {
     return interleaved;
   })();
   const ITEM_MAP = new Map(ALL_ITEMS.map((item) => [item.uid, item]));
-  const ALL_PICKS = DATA.meta.allPicks || [];
   const totalOffers = DATA.meta.total || ALL_ITEMS.length;
   let lastFiltered = [];
   let autoLoading = false;
@@ -3992,72 +2513,66 @@ dialog[open] {
   function refreshFavoriteUi() {
     if (favoritesCount) favoritesCount.textContent = formatNumber(favoriteUids.size);
     if (acquiredCount) acquiredCount.textContent = formatNumber(acquiredUids.size);
-    if (favoritesToggle) {
-      favoritesToggle.classList.toggle('is-active', state.favoritesOnly);
-      favoritesToggle.setAttribute('aria-pressed', String(state.favoritesOnly));
-      favoritesToggle.setAttribute('aria-label', tr('favoritesAria'));
-      favoritesToggle.title = tr('favoriteToggleTitle');
-    }
-    if (acquiredToggle) {
-      acquiredToggle.classList.toggle('is-active', state.acquiredOnly);
-      acquiredToggle.setAttribute('aria-pressed', String(state.acquiredOnly));
-      acquiredToggle.setAttribute('aria-label', tr('acquiredAria'));
-      acquiredToggle.title = tr('acquiredToggleTitle');
-    }
+    viewButtons.forEach((button) => {
+      const view = button.dataset.view;
+      const active = view === 'favorites'
+        ? state.favoritesOnly
+        : view === 'acquired'
+          ? state.acquiredOnly
+          : !state.favoritesOnly && !state.acquiredOnly;
+      button.setAttribute('aria-pressed', String(active));
+    });
     $$('.favorite-btn').forEach(updateFavoriteButton);
     $$('.acquired-btn').forEach(updateAcquiredButton);
   }
 
   async function toggleFavorite(uid) {
-    await (favoritesReadyPromise || Promise.resolve());
     const item = ITEM_MAP.get(uid);
     if (!item) return;
     const adding = !favoriteUids.has(uid);
     if (adding) favoriteUids.add(uid);
     else favoriteUids.delete(uid);
     refreshFavoriteUi();
-    try {
-      await writeFavoriteRecord(uid, adding);
-    } catch (error) {
-      console.warn('Could not save favorite:', error);
-    }
     if (state.favoritesOnly) {
       renderFilters();
       renderResults();
     }
+    try {
+      await (favoritesReadyPromise || Promise.resolve());
+      await writeFavoriteRecord(uid, adding);
+    } catch (error) {
+      console.warn('Could not save favorite:', error);
+    }
   }
 
   async function toggleAcquired(uid) {
-    await (favoritesReadyPromise || Promise.resolve());
     const item = ITEM_MAP.get(uid);
     if (!item) return;
     const adding = !acquiredUids.has(uid);
     if (adding) acquiredUids.add(uid);
     else acquiredUids.delete(uid);
     refreshFavoriteUi();
-    try {
-      await writeAcquiredRecord(uid, adding);
-    } catch (error) {
-      console.warn('Could not save acquired item:', error);
-    }
     if (state.acquiredOnly) {
       renderFilters();
       renderResults();
     }
+    try {
+      await (favoritesReadyPromise || Promise.resolve());
+      await writeAcquiredRecord(uid, adding);
+    } catch (error) {
+      console.warn('Could not save acquired item:', error);
+    }
   }
 
-  async function toggleFavoritesOnly() {
-    await (favoritesReadyPromise || Promise.resolve());
-    state.favoritesOnly = !state.favoritesOnly;
-    state.visible = PAGE_SIZE;
-    refreshFavoriteUi();
-    renderFilters();
-    renderResults();
-  }
-
-  async function toggleAcquiredOnly() {
-    await (favoritesReadyPromise || Promise.resolve());
-    state.acquiredOnly = !state.acquiredOnly;
+  function setView(view) {
+    if (view === 'all') {
+      state.favoritesOnly = false;
+      state.acquiredOnly = false;
+    } else if (view === 'favorites') {
+      state.favoritesOnly = !state.favoritesOnly;
+    } else if (view === 'acquired') {
+      state.acquiredOnly = !state.acquiredOnly;
+    }
     state.visible = PAGE_SIZE;
     refreshFavoriteUi();
     renderFilters();
@@ -4095,10 +2610,6 @@ dialog[open] {
     return state.lang === 'zh' ? item.nameZh || item.name : item.name;
   }
 
-  function themeTagline(theme) {
-    return state.lang === 'zh' ? theme.taglineZh || theme.tagline : theme.tagline;
-  }
-
   function pluralize(count, singular, plural) {
     return count === 1 ? singular : plural;
   }
@@ -4119,13 +2630,8 @@ dialog[open] {
 
   function ticketsLabel(count) {
     const number = formatNumber(count);
-    if (state.lang === 'zh') return `${number} 張訂購券`;
+    if (state.lang === 'zh') return `${number} 訂購券`;
     return `${number} ${pluralize(count, 'Order Ticket', 'Order Tickets')}`;
-  }
-
-  function ticketType(count) {
-    if (state.lang === 'zh') return '張訂購券';
-    return pluralize(count, 'Order Ticket', 'Order Tickets');
   }
 
   function rewardTypesLabel(count) {
@@ -4233,8 +2739,6 @@ dialog[open] {
     root.style.setProperty('--accent-soft', soft);
     root.style.setProperty('--accent-mist', mixHex(soft, '#ffffff', 0.56));
     root.style.setProperty('--accent-rgb', hexToRgb(accent));
-    root.style.setProperty('--hero-a', theme ? theme.glow1 : '#eee9fd');
-    root.style.setProperty('--hero-b', theme ? theme.glow2 : '#fff0e9');
   }
 
   /* -------------------------------------------------------
@@ -4279,76 +2783,15 @@ dialog[open] {
   }
 
   /* -------------------------------------------------------
-     Hero
+     Page chrome
      ------------------------------------------------------- */
 
   function scopeItems() {
     return state.theme === 'all' ? ALL_ITEMS : (THEME_MAP.get(state.theme)?.items || []);
   }
 
-  function statHTML(value, label) {
-    return `<div class="hero-stat"><strong>${escapeHTML(value)}</strong><span>${escapeHTML(label)}</span></div>`;
-  }
-
-  function updateHero() {
-    const theme = state.theme === 'all' ? null : THEME_MAP.get(state.theme);
-    const items = theme ? theme.items : ALL_ITEMS;
-    const ticketValues = items.map((item) => item.tickets);
-    const minTickets = Math.min(...ticketValues);
-    const maxTickets = Math.max(...ticketValues);
-    const ticketRange = minTickets === maxTickets ? String(minTickets) : `${minTickets}–${maxTickets}`;
-    const rewardCount = new Set(items.map((item) => item.reward)).size;
-
-    applyThemeAccent(theme);
-
-    if (theme) {
-      heroEyebrow.textContent = tr('heroEyebrowCount', { count: offersLabel(theme.count) });
-      heroTitle.innerHTML = `${escapeHTML(themeName(theme))}<br><span class="soft">${escapeHTML(tr('heroThemeTail'))}</span>`;
-      heroSub.textContent = tr('heroThemeSub', {
-        tagline: themeTagline(theme),
-        count: offersLabel(theme.count)
-      });
-      heroStats.innerHTML = [
-        statHTML(formatNumber(theme.count), tr('heroStatsOffers')),
-        statHTML(formatNumber(rewardCount), tr('heroStatsRewards')),
-        statHTML(ticketRange, tr('heroStatsTickets'))
-      ].join('');
-      heroStampCount.textContent = formatNumber(theme.count);
-    } else {
-      heroEyebrow.textContent = tr('heroAllEyebrow');
-      heroTitle.innerHTML = tr('heroAllTitle');
-      heroSub.textContent = tr('heroAllSub');
-      heroStats.innerHTML = [
-        statHTML(formatNumber(totalOffers), tr('heroStatsOffers')),
-        statHTML(formatNumber(DATA.themes.length), tr('heroStatsThemes')),
-        statHTML(ticketRange, tr('heroStatsTickets'))
-      ].join('');
-      heroStampCount.textContent = formatNumber(totalOffers);
-    }
-    heroStampLabel.textContent = tr('heroStamp');
-
-    const picks = theme
-      ? (theme.heroPicks || []).map((key) => IMAGES[key]).filter(Boolean)
-      : ALL_PICKS.map((key) => IMAGES[key]).filter(Boolean);
-    const fallback = items
-      .filter((item) => item.imgKey && IMAGES[item.imgKey])
-      .slice(0, 3)
-      .map((item) => IMAGES[item.imgKey]);
-    const resolved = picks.length >= 3 ? picks.slice(0, 3) : [...picks, ...fallback].slice(0, 3);
-
-    if (resolved[0]) heroMain.src = resolved[0];
-    if (resolved[1]) heroMiniA.src = resolved[1];
-    if (resolved[2]) heroMiniB.src = resolved[2];
-
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-      heroTitle.animate(
-        [
-          { opacity: 0.25, transform: 'translateY(4px)' },
-          { opacity: 1, transform: 'translateY(0)' }
-        ],
-        { duration: 300, easing: 'cubic-bezier(.22,.8,.2,1)' }
-      );
-    }
+  function refreshThemeChrome() {
+    applyThemeAccent(state.theme === 'all' ? null : THEME_MAP.get(state.theme));
   }
 
   /* -------------------------------------------------------
@@ -4418,10 +2861,23 @@ dialog[open] {
     }).join('');
 
     const hasFilters = Boolean(state.q) || state.favoritesOnly || state.acquiredOnly || state.reward !== 'all' || state.price !== 'all' || state.material !== 'all';
+    const activeChips = [state.reward !== 'all', state.price !== 'all', state.material !== 'all'].filter(Boolean).length;
+    if (filtersCount) {
+      filtersCount.textContent = formatNumber(activeChips);
+      filtersCount.hidden = activeChips === 0;
+    }
     resetFilters.hidden = !hasFilters;
     searchField.classList.toggle('has-value', Boolean(state.q));
     if (document.activeElement !== searchInput) searchInput.value = state.q;
     refreshFavoriteUi();
+    syncChipOverflow();
+  }
+
+  function syncChipOverflow() {
+    $$('.chip-list').forEach((list) => {
+      const atEnd = list.scrollLeft + list.clientWidth >= list.scrollWidth - 2;
+      list.classList.toggle('at-end', atEnd);
+    });
   }
 
   /* -------------------------------------------------------
@@ -4472,7 +2928,6 @@ dialog[open] {
 
   function cardHTML(item, index) {
     const theme = item.theme;
-    const rewardClass = REWARD_CLASS[item.reward] || 'reward-item';
     const image = item.imgKey ? IMAGES[item.imgKey] : null;
     const displayName = itemName(item);
     const imageAlt = state.lang === 'zh' ? `${displayName} 商品圖` : `${displayName} item artwork`;
@@ -4485,54 +2940,48 @@ dialog[open] {
       price: priceLabel(item),
       tickets: ticketsLabel(item.tickets)
     });
-    const materials = (item.materials || []).filter((material) => materialMeta(material.name));
-    const materialsHTML = materials.length
-      ? `<div class="materials-block">
-          <p class="materials-label">${escapeHTML(tr('materialsRequired'))}</p>
-          <div class="material-list">
-            ${materials.map((material) => `
-              <span class="material-row" title="${escapeHTML(`${materialName(material.name)} ×${material.quantity}`)}">
-                ${materialImage(material.name)}
-                <span class="material-name">${escapeHTML(materialName(material.name))}</span>
-                <span class="material-qty">×${formatNumber(material.quantity)}</span>
-              </span>
-            `).join('')}
-          </div>
-        </div>`
+    /* Cards only surface the seasonal material pack; raw materials and
+       ingredient lists stay in the detail dialog. Every item owns at
+       most one pack, so the row holds a single extra entry. */
+    const pack = (item.materials || []).find(
+      (material) => /material pack$/i.test(material.name) && materialMeta(material.name)
+    );
+    const packLabel = pack ? `${materialName(pack.name)} ×${formatNumber(pack.quantity)}` : '';
+    const packHTML = pack
+      ? `<span class="cost-line pack-line" role="img" aria-label="${escapeHTML(packLabel)}" title="${escapeHTML(packLabel)}">
+          ${materialImage(pack.name, 'pack-img')}
+          <span class="cost-amount"><span class="cost-times">×</span>${formatNumber(pack.quantity)}</span>
+        </span>`
       : '';
 
     return `
-      <article class="offer-card ${rewardClass}" tabindex="0" role="button"
+      <article class="offer-card" tabindex="0" role="button"
         data-uid="${escapeHTML(item.uid)}"
         aria-label="${escapeHTML(cardLabel)}"
         style="--tc:${theme.accent};--ts:${theme.soft};--i:${Math.min(index, 15)}">
         <div class="card-media">
-          <span class="reward-badge"><span class="reward-dot"></span>${escapeHTML(rewardLabel(item.reward))}</span>
-          <div class="card-actions">
-            ${acquiredButtonHTML(item)}
-            ${favoriteButtonHTML(item)}
-          </div>
-          <span class="card-spark card-spark--a">✦</span>
-          <span class="card-spark card-spark--b">✦</span>
           ${media}
         </div>
         <div class="card-body">
-          <p class="card-theme"><span class="theme-dot"></span><span>${escapeHTML(themeName(theme))}</span></p>
-          <h3 class="card-title">${escapeHTML(displayName)}</h3>
-          <div class="card-foot${materials.length ? ' has-materials' : ''}">
-            <div class="cost-stack">
-              <span class="cost-line">
+          <div class="card-head">
+            <h3 class="card-title">${escapeHTML(displayName)}</h3>
+            <div class="card-actions">
+              ${acquiredButtonHTML(item)}
+              ${favoriteButtonHTML(item)}
+            </div>
+          </div>
+          <div class="card-foot">
+            <div class="cost-group">
+              <span class="cost-line price-line" title="${escapeHTML(priceLabel(item))}">
                 ${currencyImage(item.currency, 'price-img')}
                 <span class="cost-amount">${formatNumber(item.amount)}</span>
-                <span class="cost-type">${escapeHTML(currencyLabel(item.currency))}</span>
               </span>
               <span class="cost-line ticket-line" title="${escapeHTML(ticketsLabel(item.tickets))}">
                 ${ticketImage()}
                 <span class="cost-amount">${formatNumber(item.tickets)}</span>
-                <span class="cost-type">${escapeHTML(ticketType(item.tickets))}</span>
               </span>
+              ${packHTML}
             </div>
-            ${materialsHTML}
           </div>
         </div>
       </article>
@@ -4553,45 +3002,38 @@ dialog[open] {
     const noFavorites = state.favoritesOnly && favoriteUids.size === 0;
     const noAcquired = state.acquiredOnly && acquiredUids.size === 0;
 
+    let metaText = '';
     if (state.favoritesOnly && state.acquiredOnly) {
-      resultsTitle.textContent = tr('favoritesAndAcquiredTitle');
-      resultsMeta.textContent = offersLabel(total);
-      if (state.q) resultsMeta.textContent += ` · ${tr('resultsFor', { query: state.q })}`;
+      metaText = offersLabel(total);
+      if (state.q) metaText += ` · ${tr('resultsFor', { query: state.q })}`;
     } else if (state.acquiredOnly) {
-      resultsTitle.textContent = tr('acquiredTitle');
-      resultsMeta.textContent = tr('acquiredMeta', { count: offersLabel(total) });
-      if (state.q) resultsMeta.textContent += ` · ${tr('resultsFor', { query: state.q })}`;
+      metaText = tr('acquiredMeta', { count: offersLabel(total) });
+      if (state.q) metaText += ` · ${tr('resultsFor', { query: state.q })}`;
     } else if (state.favoritesOnly) {
-      resultsTitle.textContent = tr('favoritesTitle');
-      resultsMeta.textContent = tr('favoritesMeta', { count: offersLabel(total) });
-      if (state.q) resultsMeta.textContent += ` · ${tr('resultsFor', { query: state.q })}`;
+      metaText = tr('favoritesMeta', { count: offersLabel(total) });
+      if (state.q) metaText += ` · ${tr('resultsFor', { query: state.q })}`;
     } else if (state.q) {
-      resultsTitle.textContent = tr('resultSearchTitle');
-      resultsMeta.textContent = `${tr('resultsFor', { query: state.q })} · ${tr('matches', { count: formatNumber(total) })}`;
+      metaText = `${tr('resultsFor', { query: state.q })} · ${tr('matches', { count: formatNumber(total) })}`;
     } else if (theme) {
-      resultsTitle.textContent = themeName(theme);
-      resultsMeta.textContent = tr('resultMetaTheme', {
+      metaText = tr('resultMetaTheme', {
         count: offersLabel(total),
         rewards: rewardTypesLabel(rewardCount),
         prices: priceTypesLabel(currencyCount)
       });
     } else {
-      resultsTitle.textContent = tr('resultAllTitle');
       const ticketText = state.lang === 'zh'
-        ? `${ticketRange} 張訂購券`
+        ? `${ticketRange} 訂購券`
         : `${ticketRange} Order ${ticketRange === '1' ? 'Ticket' : 'Tickets'}`;
-      resultsMeta.textContent = state.lang === 'zh'
+      metaText = state.lang === 'zh'
         ? `${offersLabel(total)}，${tr('across')} ${themesLabel(DATA.themes.length)} · 每筆 ${ticketText}`
         : `${offersLabel(total)} ${tr('across')} ${themesLabel(DATA.themes.length)} · ${ticketText} each`;
     }
 
-    resultCount.textContent = formatNumber(total);
-    resultCountLabel.textContent = tr('offerLabel');
-
     const filterActive = Boolean(state.q) || state.favoritesOnly || state.acquiredOnly || state.reward !== 'all' || state.price !== 'all' || state.material !== 'all';
     if (!state.favoritesOnly && !state.acquiredOnly && !state.q && filterActive) {
-      resultsMeta.textContent = tr('resultMetaFiltered', { count: formatNumber(total) });
+      metaText = tr('resultMetaFiltered', { count: formatNumber(total) });
     }
+    resultsMeta.textContent = metaText;
 
     emptyTitle.textContent = tr(
       noAcquired ? 'acquiredEmptyTitle' : noFavorites ? 'favoritesEmptyTitle' : 'emptyTitle'
@@ -4601,21 +3043,15 @@ dialog[open] {
     );
     emptyClearLabel.textContent = tr(noAcquired || noFavorites ? 'browseAll' : 'clearFilters');
 
-    if (total === 0) {
-      showingLabel.textContent = '';
+    resultsCount.textContent = offersLabel(total);
+    showingLabel.textContent = total > visible ? tr('showingCount', { shown: formatNumber(visible) }) : '';
+
+    if (total === 0 || visible >= total) {
       infiniteLoader.hidden = true;
       return;
     }
-
-    if (visible < total) {
-      infiniteLoader.hidden = false;
-      loadMoreText.textContent = tr('loadingMore');
-    } else {
-      infiniteLoader.hidden = true;
-    }
-    showingLabel.textContent = visible < total
-      ? tr('showing', { shown: formatNumber(visible), total: formatNumber(total) })
-      : tr('allShown', { total: formatNumber(total) });
+    infiniteLoader.hidden = false;
+    loadMoreText.textContent = tr('loadingMore');
   }
 
   function renderResults() {
@@ -4668,7 +3104,6 @@ dialog[open] {
 
   function openDetail(item) {
     const theme = item.theme;
-    const rewardClass = REWARD_CLASS[item.reward] || 'reward-item';
     const image = item.imgKey ? IMAGES[item.imgKey] : null;
     const displayName = itemName(item);
     const imageAlt = state.lang === 'zh' ? `${displayName} 商品圖` : `${displayName} item artwork`;
@@ -4680,27 +3115,22 @@ dialog[open] {
       : `<span class="action-art">${icon(item.kind === 'action' ? 'i-play' : 'i-sparkle')}</span>`;
     modalDot.style.background = theme.accent;
     modalTheme.textContent = themeName(theme);
-    modalReward.className = `modal-reward ${rewardClass}`;
-    modalReward.innerHTML = `<span class="reward-dot"></span>${escapeHTML(rewardLabel(item.reward))}`;
-    modalReward.style.setProperty('--ts', theme.soft);
     modalTitle.textContent = displayName;
-    modalThemeLine.textContent = tr('modalThemeLine', {
-      theme: themeName(theme),
-      count: offersLabel(theme.count)
-    });
 
     modalRewardValue.innerHTML = `<span class="reward-dot" style="--reward-color:${theme.accent}"></span>${escapeHTML(rewardLabel(item.reward))}`;
     modalPriceValue.innerHTML = `${currencyImage(item.currency, 'modal-icon-img')}${escapeHTML(priceLabel(item))}`;
     modalTicketsValue.innerHTML = `${ticketImage('modal-icon-img')}${escapeHTML(ticketsLabel(item.tickets))}`;
-    modalCurrencyValue.innerHTML = `${currencyImage(item.currency, 'modal-icon-img')}${escapeHTML(currencyLabel(item.currency))}`;
-    modalRequirement.innerHTML = tr('modalRequirement', {
-      tickets: `<strong>${escapeHTML(ticketsLabel(item.tickets))}</strong>`,
-      price: `<strong>${escapeHTML(priceLabel(item))}</strong>`
-    });
-    const requirementIcon = modalRequirement.previousElementSibling;
-    if (requirementIcon && requirementIcon.tagName === 'svg') {
-      requirementIcon.outerHTML = ticketImage('requirement-ticket');
-    }
+
+    const materials = (item.materials || []).filter((material) => materialMeta(material.name));
+    modalMaterials.hidden = materials.length === 0;
+    modalMaterialList.innerHTML = materials.map((material) => `
+      <span class="modal-material">
+        ${materialImage(material.name)}
+        <span>${escapeHTML(materialName(material.name))}</span>
+        <span class="material-qty">×${formatNumber(material.quantity)}</span>
+      </span>
+    `).join('');
+
     modalLink.href = `https://build-heartopia.com${item.href}`;
 
     lastOpener = document.activeElement;
@@ -4744,6 +3174,10 @@ dialog[open] {
       const key = node.dataset.i18nAria;
       if (dict()[key] != null) node.setAttribute('aria-label', dict()[key]);
     });
+    $$('[data-i18n-title]').forEach((node) => {
+      const key = node.dataset.i18nTitle;
+      if (dict()[key] != null) node.setAttribute('title', dict()[key]);
+    });
 
     $$('.lang-switch button').forEach((button) => {
       button.setAttribute('aria-pressed', String(button.dataset.lang === state.lang));
@@ -4766,7 +3200,7 @@ dialog[open] {
     if (detailDialog.open) closeDetail();
     applyStaticLanguage();
     renderThemeNav();
-    updateHero();
+    refreshThemeChrome();
     renderFilters();
     renderResults();
   }
@@ -4782,7 +3216,7 @@ dialog[open] {
     writeStorage(LS_THEME, id);
     normalizeFilterState(scopeItems());
     renderThemeNav();
-    updateHero();
+    refreshThemeChrome();
     renderFilters();
     renderResults();
 
@@ -4883,8 +3317,23 @@ dialog[open] {
     searchInput.focus();
   });
 
-  favoritesToggle.addEventListener('click', toggleFavoritesOnly);
-  acquiredToggle.addEventListener('click', toggleAcquiredOnly);
+  viewSwitch.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-view]');
+    if (!button) return;
+    setView(button.dataset.view);
+  });
+
+  if (filtersToggle) {
+    filtersToggle.addEventListener('click', () => {
+      const open = browser.classList.toggle('is-filters-open');
+      filtersToggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  window.addEventListener('resize', syncChipOverflow);
+  if (filtersPanel) {
+    filtersPanel.addEventListener('scroll', syncChipOverflow, { capture: true, passive: true });
+  }
 
   document.addEventListener('keydown', (event) => {
     const tag = (event.target.tagName || '').toLowerCase();
@@ -4974,7 +3423,7 @@ dialog[open] {
 
   applyStaticLanguage();
   renderThemeNav();
-  updateHero();
+  refreshThemeChrome();
   renderFilters();
   renderResults();
   favoritesReadyPromise = initFavorites();
